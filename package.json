@@ -1,0 +1,20 @@
+{
+  "name": "e-commerce-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev" : "py manage.py runserver"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sayantan-Bera/E-commerce-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sayantan-Bera/E-commerce-website/issues"
+  },
+  "homepage": "https://github.com/Sayantan-Bera/E-commerce-website#readme"
+}

@@ -1,21 +1,210 @@
-.owl-carousel .item{
-    /* border: 1px solid black; */
-    font-size: 24px;
-    text-align: center;
-    margin-top: 20px;;
-   }
-   
-   .owl-next{
-    float:right;
-   }
-   .owl-prev{
-    float:left;
-   }
-   .owl-prev span{
-    font-size: 24px;
-    font-weight: bold;
-   }
-   .owl-next span{
-    font-size: 24px;
-    font-weight: bold;
-   }
+* {
+  user-select: none;
+}
+.website-name {
+  font-size: 24px;
+  margin-left: 5px;
+}
+.header {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header-second {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0px 5px 0px;
+  font-size: 1.35vw;
+  font-weight: bold;
+}
+
+.search-div {
+  display: flex;
+  width: 90%;
+  margin: 0 10px 0 10px;
+}
+.search-div > input {
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0px;
+  width: 100%;
+  font-size: 16px;
+  padding-left: 5px;
+  letter-spacing: 0.5px;
+  background: transparent;
+  color: white;
+}
+.search-div > input:focus {
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
+  border: none;
+  transition: 1s;
+  background: transparent;
+}
+.search-button-img {
+  padding: 5px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: white;
+  background: transparent;
+  transition: 0.5s;
+}
+.search-button-img:hover{
+    filter: invert();
+}
+.search-button:focus {
+  outline: none;
+}
+
+.nav-left-buttons,
+.nav-right-buttons {
+  display: none;
+}
+
+.menu-button {
+  visibility: visible;
+}
+.menu-button,
+.menu-close-button {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: white;
+  background: transparent;
+}
+.menu-button-img,
+.menu-close-button-img {
+  padding: 5px;
+  height: 28px;
+  background-color: white;
+  background: transparent;
+}
+.menu-button:focus,
+.menu-close-button:focus {
+  outline: none;
+}
+
+.menu-close-button {
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+}
+.menu-close-button-img {
+  height: 34px;
+}
+
+.toggle-menu {
+  position: absolute;
+  top: 80px;
+  z-index: 10;
+  width: 180px;
+  visibility: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.toggle-menu > a > div,
+.toggle-menu > div,
+.toggle-menu > div > div > a {
+  margin-top: 2px;
+  padding: 6px 0px 6px 10px;
+  letter-spacing: 0.5px;
+  transition: 0.1s ease-in;
+  color: white;
+}
+.toggle-menu > div > div > a {
+  color: black;
+}
+
+.toggle-menu > a > div:hover,
+.toggle-menu > div:hover,
+.toggle-menu > div > div > a:hover {
+  color: black;
+  background-color: rgb(209, 207, 207);
+}
+
+div > a {
+  text-decoration: none;
+  color: black;
+  transition: 0.2s;
+}
+div > a:hover {
+  color: grey;
+  text-decoration: none;
+}
+.header-first > a {
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+}
+
+.header-first > a:hover {
+  color: red;
+}
+
+@media (min-width: 850px) {
+  .header {
+    flex-direction: row;
+    padding: 10px;
+  }
+  .search-div {
+    width: 40%;
+  }
+  .nav-left-buttons,
+  .nav-right-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+  }
+  .menu-button,
+  .toggle-menu,
+  .menu-close-button {
+    display: none;
+  }
+}
+
+.opacity-0{
+    opacity: 0;
+}
+
+.owl-carousel .item {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.owl-next {
+  float: right;
+}
+.owl-prev {
+  float: left;
+}
+.owl-prev span {
+  font-size: 24px;
+  font-weight: bold;
+}
+.owl-next span {
+  font-size: 24px;
+  font-weight: bold;
+}
