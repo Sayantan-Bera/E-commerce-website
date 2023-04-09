@@ -43,49 +43,52 @@
 
       <!-- main-nav-bar -->
       <div class="header-second" id="navbarSupportedContent">
+
+        <!-- nav-left-buttons -->
         <div class="nav-left-buttons">
-          <!-- home -->
-          <div class="">
-            <a class="" aria-current="page" href="/">Home</a>
+
+          <!-- men wear -->
+          <div class="dropdown">
+            <div class="dropdown-head">
+              Men
+            </div>
+
+            <div class="drop-menu">
+              <a class="drop-item" href="{% url 'mobile' %}">Shirts</a>
+              <a class="drop-item" href="#">Hoodies / Jackets</a>
+              <a class="drop-item" href="#">Jeans</a>
+              <a class="drop-item" href="#">Trousers</a>
+              <a class="drop-item" href="#">Active Wears</a>
+            </div>
           </div>
 
-          <!-- electronics dropdown -->
-          <div class="">
-            <a
-              class=""
-              href="#"
-              id="electronicsDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Electronics
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="electronicsDropdown">
-              <li>
-                <a class="dropdown-item" href="{% url 'mobile' %}">Mobile</a>
-              </li>
-              <li><a class="dropdown-item" href="#">Laptop</a></li>
-            </ul>
+          <!-- women wear -->
+          <div class="dropdown">
+            <div class="dropdown-head">
+              Women
+            </div>
+
+            <div class="drop-menu">
+              <a class="drop-item" href="#">Dresses</a>
+              <a class="drop-item" href="#">Tops</a>
+              <a class="drop-item" href="#">Jeans</a>
+              <a class="drop-item" href="#">Shirts</a>
+              <a class="drop-item" href="#">Active Wears</a>
+            </div>
           </div>
 
-          <!-- fashion dropdown -->
-          <div class="">
-            <a
-              class=""
-              href="#"
-              id="fashionDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Fashion
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="fashionDropdown">
-              <li><a class="dropdown-item" href="#">Top Wear</a></li>
-              <li><a class="dropdown-item" href="#">Bottom Wear</a></li>
-            </ul>
+          <!-- Kids wear -->
+          <div class="dropdown">
+            <div class="dropdown-head">
+              Kids
+            </div>
+
+            <div class="drop-menu">
+              <a class="drop-item" href="#">Girls</a>
+              <a class="drop-item" href="#">Boys</a>
+            </div>
           </div>
+
         </div>
 
         <!-- menu-open-button -->
@@ -124,52 +127,46 @@
           </button>
         </form>
 
+        <!-- nav-right-buttons -->
         <div class="nav-right-buttons">
           <!-- profile -->
-          <div class="">
-            <a
-              class="dropdown-toggle"
-              href="#"
-              id="profileDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+          <div class="dropdown">
+            <div class="dropdown-head dropdown-toggle">
               Sonam
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-              <li>
-                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="{% url 'orders' %}">Orders</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="{% url 'changepassword' %}"
-                  >Change Password</a
-                >
-              </li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
-            </ul>
+            </div>
+
+            <div class="drop-menu">
+              <a class="drop-item" href="{% url 'profile' %}">Profile</a>
+              <a class="drop-item" href="{% url 'orders' %}">Orders</a>
+              <a class="drop-item" href="{% url 'changepassword' %}">Change Password</a>
+              <a class="drop-item" href="#">Logout</a>
+            </div>
           </div>
 
           <!-- cart -->
-          <div class="">
-            <a href="{% url 'add-to-cart' %}" class=""
-              ><span class="">4</span> Cart
-            </a>
+          <div class="dropdown">
+            <div class="dropdown-head">
+              <a class="cart" href="{% url 'add-to-cart' %}"><span class="">4</span>Cart</a>
+            </div>
           </div>
 
           <!-- login -->
-          <div class="">
-            <a href="{% url 'login' %}" class="">Login</a>
+          <div class="dropdown">
+            <div class="dropdown-head">
+              <a href="{% url 'login' %}">Login</a>
+            </div>
           </div>
 
           <!-- sign up -->
-          <div class="">
-            <a href="{% url 'customerregistration' %}" class="">Sign Up</a>
+          <div class="dropdown">
+            <div class="dropdown-head">
+              <a href="{% url 'customerregistration' %}">
+                Sign Up
+              </a>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -179,61 +176,59 @@
         <div class="home">Home</div>
       </a>
 
-      <!-- electronics dropdown -->
-      <div class="">
-        <div
-          class="dropdown-toggle"
-          id="electronicsDropdown"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Electronics
+      <!-- men wear -->
+      <div class="dropdown">
+        <div class="dropdown-head">
+          Men
         </div>
 
-        <div class="dropdown-menu" aria-labelledby="electronicsDropdown">
-          <a class="dropdown-item" href="{% url 'mobile' %}">Mobile</a>
-          <a class="dropdown-item" href="#">Laptop</a>
+        <div class="drop-menu">
+          <a class="drop-item" href="{% url 'mobile' %}">Shirts</a>
+          <a class="drop-item" href="#">Hoodies / Jackets</a>
+          <a class="drop-item" href="#">Jeans</a>
+          <a class="drop-item" href="#">Trousers</a>
+          <a class="drop-item" href="#">Active Wears</a>
         </div>
       </div>
 
-      <!-- fashion dropdown -->
-      <div class="">
-        <div
-          class="dropdown-toggle"
-          id="fashionDropdown"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Fashion
+      <!-- women wear -->
+      <div class="dropdown">
+        <div class="dropdown-head">
+          Women
         </div>
 
-        <div class="dropdown-menu" aria-labelledby="fashionDropdown">
-          <a class="dropdown-item" href="#">Top Wear</a>
-          <a class="dropdown-item" href="#">Bottom Wear</a>
+        <div class="drop-menu">
+          <a class="drop-item" href="#">Dresses</a>
+          <a class="drop-item" href="#">Tops</a>
+          <a class="drop-item" href="#">Jeans</a>
+          <a class="drop-item" href="#">Shirts</a>
+          <a class="drop-item" href="#">Active Wears</a>
+        </div>
+      </div>
+
+      <!-- Kids wear -->
+      <div class="dropdown">
+        <div class="dropdown-head">
+          Kids
+        </div>
+
+        <div class="drop-menu">
+          <a class="drop-item" href="#">Boys</a>
+          <a class="drop-item" href="#">Girls</a>
         </div>
       </div>
 
       <!-- profile -->
-      <div class="">
-        <div
-          class="dropdown-toggle"
-          id="profileDropdown"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+      <div class="dropdown">
+        <div class="dropdown-head dropdown-toggle">
           Sonam
         </div>
 
-        <div class="dropdown-menu" aria-labelledby="profileDropdown">
-          <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
-          <a class="dropdown-item" href="{% url 'orders' %}">Orders</a>
-          <a class="dropdown-item" href="{% url 'changepassword' %}"
-            >Change Password</a
-          >
-          <a class="dropdown-item" href="#">Logout</a>
+        <div class="drop-menu">
+          <a class="drop-item" href="{% url 'profile' %}">Profile</a>
+          <a class="drop-item" href="{% url 'orders' %}">Orders</a>
+          <a class="drop-item" href="{% url 'changepassword' %}">Change Password</a>
+          <a class="drop-item" href="#">Logout</a>
         </div>
       </div>
 
