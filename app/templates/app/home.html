@@ -34,10 +34,10 @@
 {% block main-content %}
 <!-- 1st Product Slider -->
 <div class="m-3">
- <h2>Hero Product</h2>
+ <h2>Trending</h2>
  <!-- Slider 1 -->
  <div class="owl-carousel" id="slider1">
-  {% for t in topwears %}
+  {% for t in trending %}
   <a href="{% url 'product-detail' t.id %}" class="btn">
   <div class="item"><img src="{{t.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{t.title}}</span><br><span class="fs-5">Rs. {{t.discounted_price}}</span></div></a>
   {% endfor %}
@@ -82,10 +82,10 @@
 
 <!-- 2nd Product Slider -->
 <div class="mx-3">
- <h2>Trending Deals</h2>
+ <h2>Latest Fashion</h2>
  <!-- Slider 2 -->
  <div class="owl-carousel" id="slider2">
-  {% for t in bottomwears %}
+  {% for t in latest_fashion %}
   <a href="{% url 'product-detail' t.id %}" class="btn">
   <div class="item"><img src="{{t.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{t.title}}</span><br><span class="fs-5">Rs. {{t.discounted_price}}</span></div></a>
   {% endfor %}

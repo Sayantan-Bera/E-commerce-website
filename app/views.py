@@ -7,10 +7,13 @@ from .models import Customer, Product, Cart, OrderPlaced
 
 class ProductView(View):
     def get(self, request):
-        topwears = Product.objects.filter(category='TW')
-        bottomwears = Product.objects.filter(category='BW')
-        mobiles = Product.objects.filter(category='M')
-        return render(request, 'app/home.html', {'topwears':topwears, 'bottomwears':bottomwears, 'mobiles':mobiles})
+        trending = Product.objects.filter(category='T')
+        
+        latest_fashion = Product.objects.filter(category='MS')|Product.objects.filter(category='MJ')
+        jeans_men = Product.objects.filter(category='MJ')
+        tops_women = Product.objects.filter(category='WT')
+        active_wears_women = Product.objects.filter(category='WA')
+        return render(request, 'app/home.html', {'trending':trending, 'latest_fashion':latest_fashion, 'tops_women':tops_women, 'active_wears_women':active_wears_women})
 
 # def product_detail(request):
 #  return render(request, 'app/productdetail.html')
