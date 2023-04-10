@@ -35,10 +35,19 @@ def __str__(self):
     return str(self.id)
 
 CATEGORY_CHOICES = (
-    ('M','Mobile'),
-    ('L','Laptop'),
-    ('TW','Top Wear'),
-    ('BW','Bottom Wear'),
+    ('MS','Shirts Men'),
+    ('MHJ','Hoodies/Jackets Men'),
+    ('MJ','Jeans Men'),
+    ('MT','Trousers Men'),
+    ('MA','Active Wears Men'),
+    ('WD','Dresses Women'),
+    ('WT','Tops Women'),
+    ('WJ','Jeans Women'),
+    ('WS','Shirts Women'),
+    ('WA','Active Wears Women'),
+    ('KB','Boys Kids'),
+    ('KG','Girls Kids'),
+    ('T','Trending'),
  )
 class Product(models.Model):
     title=models.CharField(max_length=100)
@@ -46,7 +55,7 @@ class Product(models.Model):
     discounted_price=models.FloatField()
     description=models.TextField()
     brand=models.CharField(max_length=100)
-    category=models.CharField(choices=CATEGORY_CHOICES,max_length=2)
+    category=models.CharField(choices=CATEGORY_CHOICES,max_length=3)
     product_image=models.ImageField(upload_to='productimg')
 
 def __str__(self):
