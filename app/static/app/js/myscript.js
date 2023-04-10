@@ -1,27 +1,3 @@
-$('#slider1, #slider2, #slider3').owlCarousel({
-    loop: true,
-    margin: 20,
-    responsiveClass: true,
-    responsive: {
-        0: {
-            items: 1,
-            nav: false,
-            autoplay: true,
-        },
-        600: {
-            items: 3,
-            nav: true,
-            autoplay: true,
-        },
-        1000: {
-            items: 5,
-            nav: true,
-            loop: true,
-            autoplay: true,
-        }
-    }
-})
-
 const menu_button = document.querySelector(".menu-button");
 const menu_close_button = document.querySelector(".menu-close-button");
 const toggle_menu = document.querySelector(".toggle-menu");
@@ -39,22 +15,22 @@ dropdown_head.forEach((item)=>{
     });
 
     item.addEventListener("mouseover",()=>{
-        if(window.innerWidth < 850) return;
+        if(window.innerWidth < 1000) return;
         dropdown.classList.add("show-drop-menu");
 
         item.addEventListener("mouseout",()=>{
-            if(window.innerWidth < 850) return;
+            if(window.innerWidth < 1000) return;
             dropdown.classList.remove("show-drop-menu");
         });
     });
     
     dropdown.addEventListener("mouseover",()=>{
-        if(window.innerWidth < 850) return;
+        if(window.innerWidth < 1000) return;
         dropdown.classList.add("show-drop-menu");
     });
 
     dropdown.addEventListener("mouseout",()=>{
-        if(window.innerWidth < 850) return;
+        if(window.innerWidth < 1000) return;
         dropdown.classList.remove("show-drop-menu");
     });
 })

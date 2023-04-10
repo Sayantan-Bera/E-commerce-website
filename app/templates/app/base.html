@@ -34,6 +34,8 @@
     <title>ShoppingX | {% block title %} {% endblock title %}</title>
   </head>
   <body>
+    
+    <!-- nav_bar -->
     <div class="header">
 
       <!-- website name -->
@@ -41,7 +43,7 @@
         <a class="website-name" href="/">ECOM</a>
       </div>
 
-      <!-- main-nav-bar -->
+      <!-- main-nav-buttons -->
       <div class="header-second" id="navbarSupportedContent">
 
         <!-- nav-left-buttons -->
@@ -248,8 +250,10 @@
       </a>
     </div>
 
-    {% block banner_slider %} {% endblock banner_slider %} {% block livesale %}
-    {% endblock livesale %} {% block main-content %} {% endblock main-content %}
+    {% block banner_slider %} {% endblock banner_slider %} 
+    {% block livesale %}
+    {% endblock livesale %} 
+    {% block main-content %} {% endblock main-content %}
 
     <!-- Start Footer -->
     <footer class="container-fluid bg-dark text-center p-2 mt-5">
