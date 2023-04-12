@@ -146,22 +146,22 @@
           </div>
 
           <!-- cart -->
-          <div class="dropdown">
-            <div class="dropdown-head">
-              <a class="cart" href="{% url 'add-to-cart' %}"><span class="">4</span>Cart</a>
+          <div class="dropdown ptr-all">
+            <div class="dropdown-head cart">
+              <a href="{% url 'add-to-cart' %}"><span class="">4</span>Cart</a>
             </div>
           </div>
 
           <!-- login -->
-          <div class="dropdown">
-            <div class="dropdown-head">
+          <div class="dropdown ptr-all">
+            <div class="dropdown-head login">
               <a href="{% url 'login' %}">Login</a>
             </div>
           </div>
 
           <!-- sign up -->
-          <div class="dropdown">
-            <div class="dropdown-head">
+          <div class="dropdown ptr-all">
+            <div class="dropdown-head signup">
               <a href="{% url 'customerregistration' %}">
                 Sign Up
               </a>
@@ -250,25 +250,26 @@
       </a>
     </div>
 
-    {% block banner_slider %} {% endblock banner_slider %} 
-    {% block livesale %}
-    {% endblock livesale %} 
-    {% block main-content %} {% endblock main-content %}
-
-    <!-- Start Footer -->
-    <footer class="container-fluid bg-dark text-center p-2 mt-5">
-      <small class="text-white"
-        >Copyright &copy; 2021 || Designed By GeekyShows ||
-      </small>
-      <img
-        src="{% static 'app/images/payment.png' %}"
-        alt=""
-        srcset=""
-        class="img-fluid"
-        height="2px"
-      />
-    </footer>
-    <!-- End Footer -->
+    <div class="content-body">
+      {% block banner_slider %} {% endblock banner_slider %} 
+      {% block livesale %} {% endblock livesale %} 
+      {% block main-content %} {% endblock main-content %}
+  
+      <!-- Start Footer -->
+      <footer class="container-fluid bg-dark text-center p-2 mt-5">
+        <small class="text-white"
+          >Copyright &copy; 2021 || Designed By GeekyShows ||
+        </small>
+        <img
+          src="{% static 'app/images/payment.png' %}"
+          alt=""
+          srcset=""
+          class="img-fluid"
+          height="2px"
+        />
+      </footer>
+      <!-- End Footer -->
+    </div>
 
     <!-- Jquery -->
     <script

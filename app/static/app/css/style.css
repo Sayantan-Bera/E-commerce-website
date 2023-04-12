@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: auto;
+  position: fixed;
+  z-index: 15;
+  background-color: white;
 }
 .website-name {
   font-size: 24px;
@@ -26,17 +30,17 @@
 .header-second {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   align-items: center;
   padding: 2px 0px 5px 0px;
   font-size: 1.35vw;
   font-weight: bold;
+  padding-right: 10px;
 }
 
 .search-div {
   display: flex;
   width: 90%;
-  margin-right: 2.7%;
+  margin: auto;
   background-color: rgba(232, 232, 232, 0.63);
   border-radius: 20px;
 }
@@ -120,7 +124,6 @@
 .menu-close-button-img {
   height: 34px;
 }
-
 .dropdown-head {
   cursor: pointer;
 }
@@ -141,10 +144,12 @@
 
 .toggle-menu {
   transition: 0.3s ease-in-out;
-  position: absolute;
+  position: fixed;
   margin: 0;
-  z-index: 10;
+  overflow-y: auto;
+  z-index: 20;
   width: 180px;
+  height: auto;
   opacity: 0;
   pointer-events: none;
   background-color: rgba(0, 0, 0, 0.744);
@@ -180,14 +185,21 @@ div > a:hover {
   text-decoration: none;
 }
 
-@media (min-width: 1000px) {
+.content-body{
+  position: absolute;
+  width: 100%;
+}
+.login-div{
+  margin-top: 50px;
+}
+
+@media (min-width: 1260px) {
   .header {
     flex-direction: row;
     padding: 10px;
     top: 0;
     left: 0;
-    position: absolute;
-    z-index: 10;
+    background:transparent;
   }
   .header-first {
     margin-top: -5px;
@@ -236,13 +248,12 @@ div > a:hover {
     padding-top: 8px;
     padding-bottom: 8px;
   }
-  .dropdown-head:active {
+  .dropdown:active{
     pointer-events: none;
   }
   .dropdown-head:hover {
     background: transparent;
   }
-  .dropdown-head > a,
   .dropdown-head > a:hover {
     cursor: pointer;
   }
@@ -274,16 +285,100 @@ div > a:hover {
   .drop-item:hover {
     background-color: rgba(240, 255, 255, 0.266);
   }
+  .content-body{
+    margin: 0;
+  }
+  .ptr-all:active{
+    pointer-events: all;
+  }
+  .cart, .login, .signup{
+    cursor: context-menu;
+  }
 }
 
 .slider{
   display: flex;
   flex-direction: column;
   padding: 20px;
+  height: 300px;
+  width: 100%;
 }
-.slider-head{
+.slider-body{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.left-slide-button{
+  order: 1;
+  background-color: red;
+  height: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.right-slide-button{
+  order: 3;
+  background-color: red;
+  height: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
 
+.slide-items{
+  order: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
 }
-.slider-list{
-  
+.each-slide-item{
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.each-slide-item > img{
+  border-radius: 6px;
+}
+.slide-item-price{
+  font-weight: bold;
+}
+
+@media(min-width: 600px){
+  .each-slide-item{
+    width: 46%;
+  }
+}
+@media(min-width: 1000px){
+  .each-slide-item{
+    width: 21%;
+  }
+}
+
+.slide-items::-webkit-scrollbar-track{
+  width: 5px;
+}
+
+.owl-carousel .item {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.owl-next {
+  float: right;
+}
+.owl-prev {
+  float: left;
+}
+.owl-prev span {
+  font-size: 24px;
+  font-weight: bold;
+}
+.owl-next span {
+  font-size: 24px;
+  font-weight: bold;
 }
