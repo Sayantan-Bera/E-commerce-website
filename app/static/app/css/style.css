@@ -2,24 +2,24 @@
   user-select: none;
   letter-spacing: 0.5px;
 }
-
 .header {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
   position: fixed;
-  z-index: 15;
+  z-index: 50;
   background-color: white;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+.search-div > input {
+  font-size: 14px;
 }
 .website-name {
   font-size: 24px;
   text-decoration: none;
-  color: red;
+  color: black;
   font-weight: bold;
-}
-.website-name:hover {
-  color: red;
 }
 .header-first {
   display: flex;
@@ -42,27 +42,20 @@
   width: 90%;
   margin: auto;
   background-color: rgba(232, 232, 232, 0.63);
-  border-radius: 20px;
+  border-radius: 5px;
 }
 .search-div > input {
   border: none;
-  border-radius: 0px;
   width: 100%;
-  font-size: 16px;
   padding-left: 12px;
   letter-spacing: 0.5px;
   background: transparent;
-  color: black;
+  color: rgba(0, 0, 0, 0.596);
+  border-radius: 5px;
 }
 .search-div > input:focus {
   outline: none;
 }
-
-.search-input::placeholder {
-  color: black;
-  opacity: 0.5;
-}
-
 .search-button {
   display: flex;
   align-items: center;
@@ -71,7 +64,6 @@
   height: 34px;
   width: 34px;
   border: none;
-  transition: 1s;
   background: transparent;
 }
 .search-button-img {
@@ -80,7 +72,6 @@
   border-radius: 50%;
   margin-right: 12px;
   background: transparent;
-  transition: 0.5s;
 }
 .search-button:focus {
   outline: none;
@@ -124,19 +115,20 @@
 .menu-close-button-img {
   height: 34px;
 }
+
 .dropdown-head {
   cursor: pointer;
 }
 .drop-menu {
   display: flex;
   flex-direction: column;
-  transform: scaleY(0);
   margin-left: 15px;
-  height: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s;
 }
 .show-drop-menu {
-  transform: scaleY(1);
-  height: auto;
+  max-height: 200px;
 }
 .drop-item {
   font-size: 14px;
@@ -147,12 +139,12 @@
   position: fixed;
   margin: 0;
   overflow-y: auto;
-  z-index: 20;
+  z-index: 60;
   width: 180px;
   height: auto;
   opacity: 0;
   pointer-events: none;
-  background-color: rgba(0, 0, 0, 0.744);
+  background-color: white;
 }
 .show-toggle-menu {
   opacity: 1;
@@ -165,32 +157,99 @@
   margin: 2px 0px 2px 0px;
   padding: 6px 0px 6px 10px;
   transition: 0.1s ease-in;
-  color: white;
+}
+
+header > * {
+  color: black;
+}
+
+.toggle-menu > a > div,
+.toggle-menu > div,
+.toggle-menu > div > div > a {
+  color: rgba(0, 0, 0, 0.516);
 }
 
 .toggle-menu > a > div:hover,
 .dropdown-head:hover,
 .toggle-menu > div > div > a:hover {
   color: black;
-  background-color: rgb(209, 207, 207);
 }
 
 div > a {
   text-decoration: none;
   color: black;
-  transition: 0.2s;
 }
 div > a:hover {
-  color: grey;
+  color: black;
   text-decoration: none;
 }
 
-.content-body{
+.content-body {
   position: absolute;
   width: 100%;
 }
-.login-div{
+.login-div {
   margin-top: 50px;
+}
+
+.carousel .carousel-indicators li {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+}
+
+.row {
+  width: 100%;
+}
+.custom-slider-row {
+  padding: 15px 0px 15px 30px;
+}
+.slider-head {
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.each-slide-item {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(174, 174, 174, 0.123);
+  aspect-ratio: 1/1.6;
+  border-radius: 8px;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px;
+}
+.slide-item-img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 80%;
+}
+.slide-item-img > img{
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  object-fit:cover;
+  height: 100%;
+  width: 100%;
+}
+.slide-item-details {
+  height: 16%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.slide-item-price {
+  font-weight: 400;
+  font-size: 4.5vw;
+  background-color: rgba(253, 24, 24, 0.829);
+  width: max-content;
+  color: white;
+  padding: 0.1vw 0.6vw 0.2vw 0.6vw;
+  border-radius: 10%;
+}
+.slide-item-title {
+  font-weight: 400;
+  font-size: 5vw;
+  color: black;
 }
 
 @media (min-width: 1260px) {
@@ -199,36 +258,28 @@ div > a:hover {
     padding: 10px;
     top: 0;
     left: 0;
-    background:transparent;
+    transition: 0.3s;
+  }
+  .header-bg-white {
+    background-color: white;
+  }
+  .header-bg-trans {
+    background-color: transparent;
   }
   .header-first {
     margin-top: -5px;
     padding-left: 5px;
   }
-  .search-div > input,
-  .search-input::placeholder,
   .dropdown-head:hover,
   .dropdown-head > a,
   .dropdown-head > a:hover,
   .drop-item,
-  .drop-item:hover{
-    color: white;
+  .drop-item:hover {
+    color: black;
   }
   .search-div {
     width: 100%;
-    background-color: rgba(232, 232, 232, 0.352);
-  }
-  .search-div > input {
-    font-size: 1.35vw;
-  }
-  .search-input::placeholder {
-    opacity: 1;
-  }
-  .search-button-img{
-    filter: invert();
-  }
-  .search-button-img:hover{
-    filter: invert(0);
+    background-color: rgba(232, 232, 232, 0.623);
   }
   .nav-left-buttons,
   .nav-right-buttons {
@@ -247,8 +298,22 @@ div > a:hover {
     font-weight: 100;
     padding-top: 8px;
     padding-bottom: 8px;
+    transition: 0.2s;
   }
-  .dropdown:active{
+  .dropdown-head::after,
+  .drop-item::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #000;
+    transition: width 0.3s;
+  }
+  .dropdown-head:hover::after,
+  .drop-item:hover::after {
+    width: 100%;
+  }
+  .dropdown:active {
     pointer-events: none;
   }
   .dropdown-head:hover {
@@ -262,13 +327,15 @@ div > a:hover {
     width: 8.2rem;
     margin-top: -2px;
     margin-left: 0px;
-    background-color: rgba(0, 0, 0, 0.744);
+    background-color: white;
     padding: 5px;
     opacity: 0;
     pointer-events: none;
     transition: 0.3s ease-in-out;
     transform: translateY(0%);
     height: auto;
+    overflow: auto;
+    max-height: none;
   }
   .show-drop-menu {
     opacity: 1;
@@ -276,109 +343,51 @@ div > a:hover {
     cursor: pointer;
     height: auto;
   }
-
   .drop-item {
     font-size: 14px;
     font-weight: 100;
     padding: 10px 5px;
   }
-  .drop-item:hover {
-    background-color: rgba(240, 255, 255, 0.266);
-  }
-  .content-body{
+  .content-body {
     margin: 0;
   }
-  .ptr-all:active{
+  .ptr-all:active {
     pointer-events: all;
   }
-  .cart, .login, .signup{
+  .cart,
+  .login,
+  .signup {
     cursor: context-menu;
   }
 }
 
-.slider{
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  height: 300px;
-  width: 100%;
-}
-.slider-body{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-}
-.left-slide-button{
-  order: 1;
-  background-color: red;
-  height: 30px;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-}
-.right-slide-button{
-  order: 3;
-  background-color: red;
-  height: 30px;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
+@media (min-width: 800px) {
+.custom-slider-row {margin-bottom: 5vh;}
 }
 
-.slide-items{
-  order: 2;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-}
-.each-slide-item{
-  display: flex;
-  flex-direction: column;
-  border-radius: 6px;
-  width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
-}
-.each-slide-item > img{
-  border-radius: 6px;
-}
-.slide-item-price{
-  font-weight: bold;
-}
-
-@media(min-width: 600px){
-  .each-slide-item{
-    width: 46%;
+@media (min-width: 400px) {
+  .slide-item-price {
+    font-size: 2.2vw;
   }
-}
-@media(min-width: 1000px){
-  .each-slide-item{
-    width: 21%;
+  .slide-item-title {
+    font-size: 2.5vw;
   }
 }
 
-.slide-items::-webkit-scrollbar-track{
-  width: 5px;
+@media (min-width: 700px) {
+  .slide-item-price {
+    font-size: 1.8vw;
+  }
+  .slide-item-title {
+    font-size: 2vw;
+  }
 }
 
-.owl-carousel .item {
-  font-size: 24px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.owl-next {
-  float: right;
-}
-.owl-prev {
-  float: left;
-}
-.owl-prev span {
-  font-size: 24px;
-  font-weight: bold;
-}
-.owl-next span {
-  font-size: 24px;
-  font-weight: bold;
+@media (min-width: 1000px) {
+  .slide-item-price {
+    font-size: 1.2vw;
+  }
+  .slide-item-title {
+    font-size: 1.5vw;
+  }
 }
