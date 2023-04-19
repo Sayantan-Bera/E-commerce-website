@@ -146,22 +146,22 @@
           </div>
 
           <!-- cart -->
-          <div class="dropdown ptr-all">
-            <div class="dropdown-head cart">
+          <div class="dropdown ptr-all no-dropdown">
+            <div class="dropdown-head cart no-dropdown">
               <a href="{% url 'add-to-cart' %}"><span class="">4</span>Cart</a>
             </div>
           </div>
 
           <!-- login -->
-          <div class="dropdown ptr-all">
-            <div class="dropdown-head login">
+          <div class="dropdown ptr-all no-dropdown">
+            <div class="dropdown-head login no-dropdown">
               <a href="{% url 'login' %}">Login</a>
             </div>
           </div>
 
           <!-- sign up -->
-          <div class="dropdown ptr-all">
-            <div class="dropdown-head signup">
+          <div class="dropdown ptr-all no-dropdown">
+            <div class="dropdown-head signup no-dropdown">
               <a href="{% url 'customerregistration' %}">
                 Sign Up
               </a>
@@ -251,8 +251,10 @@
     </div>
 
     <div class="content-body">
-      {% block banner_slider %} {% endblock banner_slider %} 
-      {% block main-content %} {% endblock main-content %}
+      {% block banner_slider %}
+      {% endblock banner_slider %} 
+      {% block main-content %}
+      {% endblock main-content %}
   
       <!-- Start Footer -->
       <footer class="container-fluid bg-dark text-center p-2 mt-5">

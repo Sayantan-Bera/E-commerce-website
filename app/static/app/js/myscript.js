@@ -45,11 +45,23 @@ const close_menu = ()=>{
     toggle_menu.classList.remove("show-toggle-menu");
     menu_close_button.style.visibility="hidden";
     menu_button.style.visibility="visible";
+    
+    // background enabled
+    content_body.classList.remove("blur-content");
+    [...content_body.children].forEach((item)=>{
+        item.classList.remove("disable");
+    });
 }
 const open_menu = ()=>{
     toggle_menu.classList.add("show-toggle-menu");
     menu_button.style.visibility="hidden";
     menu_close_button.style.visibility="visible";
+
+    // background disabled
+    content_body.classList.add("blur-content");
+    [...content_body.children].forEach((item)=>{
+        item.classList.add("disable");
+    });
 };
 
 menu_button.addEventListener("click", open_menu);
@@ -64,6 +76,22 @@ onload = onresize = ()=>{
     toggle_menu.style.marginTop = height_of_header+"px";
     content_body.style.marginTop = height_of_header+"px";
     toggle_menu.style.height = leftover_height;
+    if(window.innerWidth >= 1260)
+    {
+        // background enabled
+        content_body.classList.remove("blur-content");
+        [...content_body.children].forEach((item)=>{
+            item.classList.remove("disable");
+        });
+    }
+    else if(menu_button.style.visibility == "hidden")
+    {
+        // background disabled
+        content_body.classList.add("blur-content");
+        [...content_body.children].forEach((item)=>{
+            item.classList.add("disable");
+        });
+    }
 };
 
 dropdown_head.forEach((item)=>{
@@ -77,22 +105,26 @@ dropdown_head.forEach((item)=>{
     });
 
     item.addEventListener("mouseover",()=>{
-        if(window.innerWidth < 1260) return;
+        if(window.innerWidth < 1260 || item.classList.contains("no-dropdown")) return;
         dropdown.classList.add("show-drop-menu");
+        content_body.classList.add("blur-content");
+    });
 
-        item.addEventListener("mouseout",()=>{
-            if(window.innerWidth < 1260) return;
-            dropdown.classList.remove("show-drop-menu");
-        });
+    item.addEventListener("mouseout",()=>{
+        if(window.innerWidth < 1260 || item.classList.contains("no-dropdown")) return;
+        dropdown.classList.remove("show-drop-menu");
+        content_body.classList.remove("blur-content");
     });
     
     dropdown.addEventListener("mouseover",()=>{
-        if(window.innerWidth < 1260) return;
+        if(window.innerWidth < 1260 || item.classList.contains("no-dropdown")) return;
         dropdown.classList.add("show-drop-menu");
+        content_body.classList.add("blur-content");
     });
 
     dropdown.addEventListener("mouseout",()=>{
-        if(window.innerWidth < 1260) return;
+        if(window.innerWidth < 1260 || item.classList.contains("no-dropdown")) return;
         dropdown.classList.remove("show-drop-menu");
+        content_body.classList.remove("blur-content");
     });
 })

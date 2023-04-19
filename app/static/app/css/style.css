@@ -144,6 +144,7 @@
   height: auto;
   opacity: 0;
   pointer-events: none;
+  box-shadow: rgba(33, 35, 38, 0.1) 10px 0px 10px -10px;
   background-color: white;
 }
 .show-toggle-menu {
@@ -166,12 +167,6 @@ header > * {
 .toggle-menu > a > div,
 .toggle-menu > div,
 .toggle-menu > div > div > a {
-  color: rgba(0, 0, 0, 0.516);
-}
-
-.toggle-menu > a > div:hover,
-.dropdown-head:hover,
-.toggle-menu > div > div > a:hover {
   color: black;
 }
 
@@ -187,7 +182,16 @@ div > a:hover {
 .content-body {
   position: absolute;
   width: 100%;
+  transition: 0.2s ease-in-out;
 }
+.blur-content{
+  opacity: 0.4;
+}
+.disable{
+  pointer-events: none;
+  cursor: default;
+}
+
 .login-div {
   margin-top: 50px;
 }
@@ -300,8 +304,9 @@ div > a:hover {
     padding-bottom: 8px;
     transition: 0.2s;
   }
+
   .dropdown-head::after,
-  .drop-item::after {
+  .drop-item::after{
     content: "";
     display: block;
     width: 0;
@@ -310,7 +315,7 @@ div > a:hover {
     transition: width 0.3s;
   }
   .dropdown-head:hover::after,
-  .drop-item:hover::after {
+  .drop-item:hover::after{
     width: 100%;
   }
   .dropdown:active {
@@ -347,9 +352,6 @@ div > a:hover {
     font-size: 14px;
     font-weight: 100;
     padding: 10px 5px;
-  }
-  .content-body {
-    margin: 0;
   }
   .ptr-all:active {
     pointer-events: all;
