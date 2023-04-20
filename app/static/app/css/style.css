@@ -182,10 +182,7 @@ div > a:hover {
 .content-body {
   position: absolute;
   width: 100%;
-  transition: 0.2s ease-in-out;
-}
-.blur-content{
-  opacity: 0.4;
+  transition: 0.3s ease-in-out;
 }
 .disable{
   pointer-events: none;
@@ -206,11 +203,11 @@ div > a:hover {
   width: 100%;
 }
 .custom-slider-row {
-  padding: 15px 0px 15px 30px;
+  padding: 15px 50px 15px 80px;
 }
 .slider-head {
   font-size: x-large;
-  font-weight: bold;
+  font-weight: 500;
   margin-bottom: 15px;
 }
 .each-slide-item {
