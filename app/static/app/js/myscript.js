@@ -36,34 +36,70 @@ const menu_button = document.querySelector(".menu-button");
 const menu_close_button = document.querySelector(".menu-close-button");
 const toggle_menu = document.querySelector(".toggle-menu");
 const dropdown_head = document.querySelectorAll(".dropdown-head");
-const dropdowns = document.querySelectorAll(".drop-menu");
 const header = document.querySelector(".header");
-const header_first = document.querySelector(".header-first");
-const search_input = document.querySelector(".search-input");
+const search_button = document.querySelector(".search-button");
 const content_body = document.querySelector(".content-body");
-const close_menu = ()=>{
-    toggle_menu.classList.remove("show-toggle-menu");
-    menu_close_button.style.visibility="hidden";
-    menu_button.style.visibility="visible";
-}
+const content_pseudo = document.createElement("style");
+const disable_bg = `.content-body::before{
+    position: absolute;
+    z-index: 35;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.349);
+}`;
+const enable_bg = `.content-body::before{
+width: 0;
+height: 0;
+}`;
+
 const open_menu = ()=>{
     toggle_menu.classList.add("show-toggle-menu");
     menu_button.style.visibility="hidden";
     menu_close_button.style.visibility="visible";
-};
 
+    // background disabled
+    content_pseudo.innerHTML = disable_bg;
+    search_button.classList.add("disable");
+};
+const close_menu = ()=>{
+    toggle_menu.classList.remove("show-toggle-menu");
+    menu_close_button.style.visibility="hidden";
+    menu_button.style.visibility="visible";
+    
+    // background enabled
+    content_pseudo.innerHTML = enable_bg;
+    search_button.classList.remove("disable");
+}
+
+document.head.appendChild(content_pseudo);
 menu_button.addEventListener("click", open_menu);
-menu_close_button.addEventListener("click",close_menu);
 content_body.addEventListener("click",close_menu);
-header_first.addEventListener("click",close_menu);
-search_input.addEventListener("click",close_menu);
+header.addEventListener("click",(e)=>{
+    if(e.target == menu_button || e.target == menu_button.children[0]) return;
+    close_menu();
+});
 
 onload = onresize = ()=>{
     let height_of_header = header.offsetHeight;
-    let leftover_height = (window.innerHeight-height_of_header)+"px";
-    toggle_menu.style.marginTop = height_of_header+"px";
+    let leftover_height = (window.innerHeight-height_of_header);
     content_body.style.marginTop = height_of_header+"px";
-    toggle_menu.style.height = leftover_height;
+    content_body.style.height = Math.max(content_body.scrollHeight, leftover_height)+"px";
+    toggle_menu.style.marginTop = height_of_header+"px";
+    toggle_menu.style.height = leftover_height+"px";
+
+    if(window.innerWidth >= 1260)
+    {
+        // background enabled
+        content_pseudo.innerHTML = enable_bg;
+        search_button.classList.remove("disable");
+    }
+    else if(menu_button.style.visibility == "hidden")
+    {
+        // background disabled
+        content_pseudo.innerHTML = disable_bg;
+        search_button.classList.add("disable");
+    }
 };
 
 dropdown_head.forEach((item)=>{
@@ -77,22 +113,34 @@ dropdown_head.forEach((item)=>{
     });
 
     item.addEventListener("mouseover",()=>{
-        if(window.innerWidth < 1260) return;
+        if(window.innerWidth < 1260 || item.classList.contains("no-dropdown")) return;
         dropdown.classList.add("show-drop-menu");
 
-        item.addEventListener("mouseout",()=>{
-            if(window.innerWidth < 1260) return;
-            dropdown.classList.remove("show-drop-menu");
-        });
+        // disable content pseudo
+        content_pseudo.innerHTML = disable_bg;
+    });
+
+    item.addEventListener("mouseout",()=>{
+        if(window.innerWidth < 1260 || item.classList.contains("no-dropdown")) return;
+        dropdown.classList.remove("show-drop-menu");
+
+        // enable content pseudo
+        content_pseudo.innerHTML = enable_bg;
     });
     
     dropdown.addEventListener("mouseover",()=>{
-        if(window.innerWidth < 1260) return;
+        if(window.innerWidth < 1260 || item.classList.contains("no-dropdown")) return;
         dropdown.classList.add("show-drop-menu");
+
+        // disable content pseudo
+        content_pseudo.innerHTML = disable_bg;
     });
 
     dropdown.addEventListener("mouseout",()=>{
-        if(window.innerWidth < 1260) return;
+        if(window.innerWidth < 1260 || item.classList.contains("no-dropdown")) return;
         dropdown.classList.remove("show-drop-menu");
+
+        // enable content pseudo
+        content_pseudo.innerHTML = enable_bg;
     });
 })
