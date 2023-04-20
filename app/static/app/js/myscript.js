@@ -83,8 +83,12 @@ header.addEventListener("click",(e)=>{
 onload = onresize = ()=>{
     let height_of_header = header.offsetHeight;
     let leftover_height = (window.innerHeight-height_of_header);
+    
     content_body.style.marginTop = height_of_header+"px";
-    content_body.style.height = Math.max(content_body.scrollHeight, leftover_height)+"px";
+    content_body.style.height = "auto";
+    if(content_body.offsetHeight <= leftover_height)
+        content_body.style.height = leftover_height+"px";
+
     toggle_menu.style.marginTop = height_of_header+"px";
     toggle_menu.style.height = leftover_height+"px";
 
