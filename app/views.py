@@ -37,21 +37,12 @@ def address(request):
 def orders(request):
  return render(request, 'app/orders.html')
 
-def change_password(request):
- return render(request, 'app/changepassword.html')
-
 def mobile(request,data=None):
     if data == None:
         mobiles = Product.objects.filter(category='MS')
     elif data == 'Redmi' or data == 'Samsung':
         mobiles = Product.objects.filter(category='M').filter(brand=data)
     return render(request, 'app/mobile.html',{'mobiles':mobiles})
-
-def login(request):
- return render(request, 'app/login.html')
-
-# def customerregistration(request):
-#  return render(request, 'app/customerregistration.html')
 
 class CustomerRegistrationView(View):
     def get(self,request):

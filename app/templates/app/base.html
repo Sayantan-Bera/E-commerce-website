@@ -126,6 +126,7 @@
 
         <!-- nav-right-buttons -->
         <div class="nav-right-buttons">
+          {% if request.user.is_authenticated %}
           <!-- profile -->
           <div class="dropdown">
             <div class="dropdown-head">
@@ -135,8 +136,8 @@
             <div class="drop-menu">
               <a class="drop-item" href="{% url 'profile' %}">Profile</a>
               <a class="drop-item" href="{% url 'orders' %}">Orders</a>
-              <a class="drop-item" href="{% url 'changepassword' %}">Change Password</a>
-              <a class="drop-item" href="#">Logout</a>
+              <a class="drop-item" href="{% url 'passwordchange' %}">Change Password</a>
+              <a class="drop-item" href="{% url 'logout' %}">Logout</a>
             </div>
           </div>
 
@@ -146,6 +147,7 @@
               <a href="{% url 'add-to-cart' %}"><span class="">4</span>Cart</a>
             </div>
           </div>
+          {% else %}
 
           <!-- login -->
           <div class="dropdown ptr-all no-dropdown">
@@ -162,6 +164,7 @@
               </a>
             </div>
           </div>
+          {% endif %}
         </div>
 
       </div>
@@ -216,6 +219,8 @@
       </div>
 
       <!-- profile -->
+
+      {% if request.user.is_authenticated %}
       <div class="dropdown">
         <div class="dropdown-head dropdown-toggle">
           Sonam
@@ -224,8 +229,8 @@
         <div class="drop-menu">
           <a class="drop-item" href="{% url 'profile' %}">Profile</a>
           <a class="drop-item" href="{% url 'orders' %}">Orders</a>
-          <a class="drop-item" href="{% url 'changepassword' %}">Change Password</a>
-          <a class="drop-item" href="#">Logout</a>
+          <a class="drop-item" href="{% url 'passwordchange' %}">Change Password</a>
+          <a class="drop-item" href="% url 'logout' %">Logout</a>
         </div>
       </div>
 
@@ -233,7 +238,7 @@
       <a href="{% url 'add-to-cart' %}" class="">
         <div class="cart"><span class="">4</span> Cart</div>
       </a>
-
+      {% else %}
       <!-- login -->
       <a href="{% url 'login' %}" class="">
         <div class="login">Login</div>
@@ -243,6 +248,7 @@
       <a href="{% url 'customerregistration' %}" class="">
         <div class="signup">Sign Up</div>
       </a>
+      {% endif %}
     </div>
 
     <div class="content-body">
