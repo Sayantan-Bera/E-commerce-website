@@ -382,6 +382,30 @@ div > a:hover {
   }
 }
 
+<<<<<<< HEAD
+.owl-carousel .item {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.owl-next {
+  float: right;
+}
+.owl-prev {
+  float: left;
+}
+.owl-prev span {
+  font-size: 24px;
+  font-weight: bold;
+}
+.owl-next span {
+  font-size: 24px;
+  font-weight: bold;
+}
+.login-main {
+  background-color: black;
+=======
 @media (min-width: 1000px) {
   .slide-item-price {
     font-size: 1.2vw;
@@ -389,4 +413,5 @@ div > a:hover {
   .slide-item-title {
     font-size: 1.5vw;
   }
+>>>>>>> origin/master
 }
