@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from .models import Customer, Product, Cart, OrderPlaced
-from .forms import CustomerRegistrationForm, CustomerPofileForm
+from .forms import CustomerRegistrationForm, CustomerProfileForm
 from django.contrib import messages 
 
 
@@ -138,11 +138,11 @@ def checkout(request):
 
 class ProfileView(View):
     def get(self,request):
-        form = CustomerPofileForm()
+        form = CustomerProfileForm()
         return render(request, 'app/profile.html',{'form':form, 'active':'btn-primary'})
     
     def post(self,request):
-        form = CustomerPofileForm(request.POST)
+        form = CustomerProfileForm(request.POST)
         if form.is_valid():
             usr = request.user
             name = form.cleaned_data['name']

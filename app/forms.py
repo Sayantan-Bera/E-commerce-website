@@ -28,7 +28,7 @@ class MyPasswordChangeForm(PasswordChangeForm):
     new_password2=forms.CharField(label=_("Confirm New Password"),
     strip=False,widget=forms.PasswordInput(attrs={'autocomplete':'new-password','class':'form-control'}))
 
-class CustomerPofileForm(forms.ModelForm):
+class CustomerProfileForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = ['name', 'locality', 'city', 'state', 'zipcode']
