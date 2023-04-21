@@ -8,7 +8,7 @@ from django.contrib import messages
 class ProductView(View):
     def get(self, request):
         trending = Product.objects.filter(category='T')
-        latest_fashion = Product.objects.filter(category='MS')|Product.objects.filter(category='MJ')
+        latest_fashion = Product.objects.filter(category='WT')|Product.objects.filter(category='WJ')
         jeans_men = Product.objects.filter(category='MJ')
         tops_women = Product.objects.filter(category='WT')
         active_wears_women = Product.objects.filter(category='WA')
