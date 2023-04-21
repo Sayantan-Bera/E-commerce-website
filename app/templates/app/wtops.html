@@ -6,14 +6,14 @@
  <div class="row">
   <div class="col-sm-3">
    <div class="list-group">
-    <a href="{% url 'mobile'%}" class="list-group-item list-group-item-action" aria-current="true">All Shirts</a>
-    <a href="{% url 'mobiledata' 'Redmi' %}" class="list-group-item list-group-item-action" aria-current="true">Levis</a>
-    <a href="{% url 'mobiledata' 'Samsung' %}" class="list-group-item list-group-item-action" aria-current="true">Raymond</a>
+    <a href="{% url 'wtops'%}" class="list-group-item list-group-item-action" aria-current="true">All Shirts</a>
+    <a href="{% url 'wtopsdata' 'Levis' %}" class="list-group-item list-group-item-action" aria-current="true">Levis</a>
+    <a href="{% url 'wtopsdata' 'Raymond' %}" class="list-group-item list-group-item-action" aria-current="true">Raymond</a>
    </div>
   </div>
   <div class="col-sm-8">
    <div class="row">
-    {% for product in mobiles %}
+    {% for product in wtops %}
      <div class="col-sm-4 text-center mb-4">
         <a href="{% url 'product-detail' product.id %}" class="btn">
             <div class="item">

@@ -56,11 +56,11 @@
             </div>
 
             <div class="drop-menu">
-              <a class="drop-item" href="{% url 'mobile' %}">Shirts</a>
-              <a class="drop-item" href="#">Hoodies / Jackets</a>
-              <a class="drop-item" href="#">Jeans</a>
-              <a class="drop-item" href="#">Trousers</a>
-              <a class="drop-item" href="#">Active Wears</a>
+              <a class="drop-item" href="{% url 'mshirts' %}">Shirts</a>
+              <a class="drop-item" href="{% url 'mhoodjack' %}">Hoodies / Jackets</a>
+              <a class="drop-item" href="{% url 'mjeans' %}">Jeans</a>
+              <a class="drop-item" href="{% url 'mtrouser' %}">Trousers</a>
+              <a class="drop-item" href="{% url 'mactivewear' %}">Active Wears</a>
             </div>
           </div>
 
@@ -71,11 +71,11 @@
             </div>
 
             <div class="drop-menu">
-              <a class="drop-item" href="#">Dresses</a>
-              <a class="drop-item" href="#">Tops</a>
-              <a class="drop-item" href="#">Jeans</a>
-              <a class="drop-item" href="#">Shirts</a>
-              <a class="drop-item" href="#">Active Wears</a>
+              <a class="drop-item" href="{% url 'wdress' %}">Dresses</a>
+              <a class="drop-item" href="{% url 'wtops' %}">Tops</a>
+              <a class="drop-item" href="{% url 'wjeans' %}">Jeans</a>
+              <a class="drop-item" href="{% url 'wskirts' %}">Shirts</a>
+              <a class="drop-item" href="{% url 'wactivewear' %}">Active Wears</a>
             </div>
           </div>
 
@@ -86,8 +86,8 @@
             </div>
 
             <div class="drop-menu">
-              <a class="drop-item" href="#">Girls</a>
-              <a class="drop-item" href="#">Boys</a>
+              <a class="drop-item" href="{% url 'girls' %}">Girls</a>
+              <a class="drop-item" href="{% url 'boys' %}">Boys</a>
             </div>
           </div>
 
@@ -126,17 +126,18 @@
 
         <!-- nav-right-buttons -->
         <div class="nav-right-buttons">
+          {% if request.user.is_authenticated %}
           <!-- profile -->
           <div class="dropdown">
             <div class="dropdown-head">
-              Sonam
+              {{request.user.username|capfirst}}
             </div>
 
             <div class="drop-menu">
               <a class="drop-item" href="{% url 'profile' %}">Profile</a>
               <a class="drop-item" href="{% url 'orders' %}">Orders</a>
-              <a class="drop-item" href="{% url 'changepassword' %}">Change Password</a>
-              <a class="drop-item" href="#">Logout</a>
+              <a class="drop-item" href="{% url 'passwordchange' %}">Change Password</a>
+              <a class="drop-item" href="{% url 'logout' %}">Logout</a>
             </div>
           </div>
 
@@ -146,6 +147,7 @@
               <a href="{% url 'add-to-cart' %}"><span class="">4</span>Cart</a>
             </div>
           </div>
+          {% else %}
 
           <!-- login -->
           <div class="dropdown ptr-all no-dropdown">
@@ -162,6 +164,7 @@
               </a>
             </div>
           </div>
+          {% endif %}
         </div>
 
       </div>
@@ -180,11 +183,11 @@
         </div>
 
         <div class="drop-menu">
-          <a class="drop-item" href="{% url 'mobile' %}">Shirts</a>
-          <a class="drop-item" href="#">Hoodies / Jackets</a>
-          <a class="drop-item" href="#">Jeans</a>
-          <a class="drop-item" href="#">Trousers</a>
-          <a class="drop-item" href="#">Active Wears</a>
+          <a class="drop-item" href="{% url 'mshirts' %}">Shirts</a>
+          <a class="drop-item" href="{% url 'mhoodjack' %}">Hoodies / Jackets</a>
+          <a class="drop-item" href="{% url 'mjeans' %}">Jeans</a>
+          <a class="drop-item" href="{% url 'mtrouser' %}">Trousers</a>
+          <a class="drop-item" href="{% url 'mactivewear' %}">Active Wears</a>
         </div>
       </div>
 
@@ -195,11 +198,11 @@
         </div>
 
         <div class="drop-menu">
-          <a class="drop-item" href="#">Dresses</a>
-          <a class="drop-item" href="#">Tops</a>
-          <a class="drop-item" href="#">Jeans</a>
-          <a class="drop-item" href="#">Shirts</a>
-          <a class="drop-item" href="#">Active Wears</a>
+          <a class="drop-item" href="{% url 'wdress' %}">Dresses</a>
+          <a class="drop-item" href="{% url 'wtops' %}">Tops</a>
+          <a class="drop-item" href="{% url 'wjeans' %}">Jeans</a>
+          <a class="drop-item" href="{% url 'wskirts' %}">Shirts</a>
+          <a class="drop-item" href="{% url 'wactivewear' %}">Active Wears</a>
         </div>
       </div>
 
@@ -210,22 +213,24 @@
         </div>
 
         <div class="drop-menu">
-          <a class="drop-item" href="#">Boys</a>
-          <a class="drop-item" href="#">Girls</a>
+          <a class="drop-item" href="{% url 'girls' %}">Boys</a>
+          <a class="drop-item" href="{% url 'boys' %}">Girls</a>
         </div>
       </div>
 
       <!-- profile -->
+
+      {% if request.user.is_authenticated %}
       <div class="dropdown">
         <div class="dropdown-head dropdown-toggle">
-          Sonam
+          {{request.user.username|capfirst}}
         </div>
 
         <div class="drop-menu">
           <a class="drop-item" href="{% url 'profile' %}">Profile</a>
           <a class="drop-item" href="{% url 'orders' %}">Orders</a>
-          <a class="drop-item" href="{% url 'changepassword' %}">Change Password</a>
-          <a class="drop-item" href="#">Logout</a>
+          <a class="drop-item" href="{% url 'passwordchange' %}">Change Password</a>
+          <a class="drop-item" href="% url 'logout' %">Logout</a>
         </div>
       </div>
 
@@ -233,7 +238,7 @@
       <a href="{% url 'add-to-cart' %}" class="">
         <div class="cart"><span class="">4</span> Cart</div>
       </a>
-
+      {% else %}
       <!-- login -->
       <a href="{% url 'login' %}" class="">
         <div class="login">Login</div>
@@ -243,6 +248,7 @@
       <a href="{% url 'customerregistration' %}" class="">
         <div class="signup">Sign Up</div>
       </a>
+      {% endif %}
     </div>
 
     <div class="content-body">
