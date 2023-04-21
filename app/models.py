@@ -43,7 +43,7 @@ CATEGORY_CHOICES = (
     ('WD','Dresses Women'),
     ('WT','Tops Women'),
     ('WJ','Jeans Women'),
-    ('WS','Shirts Women'),
+    ('WS','Skirts Women'),
     ('WA','Active Wears Women'),
     ('KB','Boys Kids'),
     ('KG','Girls Kids'),
