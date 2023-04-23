@@ -85,6 +85,7 @@ onload = onresize = ()=>{
     let leftover_height = (window.innerHeight-height_of_header);
     
     content_body.style.marginTop = height_of_header+"px";
+    content_body.style.height = "auto";
     if(content_body.offsetHeight <= leftover_height)
         content_body.style.height = leftover_height+"px";
 

@@ -2,30 +2,48 @@
 {% load static %}
 {% block title %}Buy Now{% endblock title %}
 {% block main-content %}
-<div class="container my-5">
- <div class="row">
-  <div class="col-sm-3">
-   <div class="list-group">
-    <a href="{% url 'mshirts'%}" class="list-group-item list-group-item-action" aria-current="true">All Shirts</a>
-    <a href="{% url 'mshirtsdata' 'Levis' %}" class="list-group-item list-group-item-action" aria-current="true">Levis</a>
-    <a href="{% url 'mshirtsdata' 'Raymond' %}" class="list-group-item list-group-item-action" aria-current="true">Raymond</a>
-   </div>
-  </div>
-  <div class="col-sm-8">
-   <div class="row">
-    {% for product in mshirts %}
-     <div class="col-sm-4 text-center mb-4">
-        <a href="{% url 'product-detail' product.id %}" class="btn">
-            <div class="item">
-                <img src="{{product.product_image.url}}" alt="" height="300" class="">
-                <div class="fw-bold">{{product.title}}</div>
-                <div class="fw-bold">Rs. {{product.discounted_price}}<small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></div>
+<div class="all-products-main">
+    <div class="all-products-header">Shirts for men</div>
+    <div class="all-products-body">
+      <div class="all-filters">
+        <a
+          href="{% url 'wdress'%}"
+          class=""
+          >All Shirts</a
+        >
+        <a
+          href="{% url 'wdressdata' 'Levis' %}"
+          class=""
+          >Levis</a
+        >
+        <a
+          href="{% url 'wdressdata' 'Raymond' %}"
+          class=""
+          >Raymond</a
+        >
+      </div>
+      <div class="all-items">
+        {% for product in mshirts %}
+        <a class="each-slide-item" href="{% url 'product-detail' product.id %}">
+          <div class="slide-item-img">
+            <img src="{{product.product_image.url}}" alt="not found" />
+          </div>
+          <div class="slide-item-details">
+            <div class="slide-item-title">
+              {{product.title}}
             </div>
+            <div class="slide-item-price-outer">
+              <div class="slide-item-price">
+                <span>&#8377;</span> {{product.discounted_price}}
+              </div>
+              <small class="mrp">
+                <span>&#8377;</span>{{product.selling_price}}
+              </small>
+            </div>
+          </div>
         </a>
-     </div>
-     {% endfor %}
-   </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
- </div>
-</div>
 {% endblock main-content %}
