@@ -318,7 +318,7 @@ div > a:hover {
   display: flex;
   flex-direction: row;
   gap: 2%;
-}
+} 
 .slide-item-price-outer > small{
   text-decoration: line-through;
 }
