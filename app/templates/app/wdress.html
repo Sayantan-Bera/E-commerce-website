@@ -1,7 +1,7 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block title %}Buy Now{%endblock title %}
-{% block main-content %}
+{% block main-content %} 
 <div class="all-products-main">
   <div class="all-products-header">Dresses for women</div>
   <div class="all-products-body">
@@ -36,7 +36,7 @@
             <div class="slide-item-price">
               <span>&#8377;</span> {{product.discounted_price}}
             </div>
-            <small class="">
+            <small class="mrp">
               <span>&#8377;</span>{{product.selling_price}}
             </small>
           </div>
