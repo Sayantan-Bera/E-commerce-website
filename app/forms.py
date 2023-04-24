@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm , AuthenticationForm , UsernameField , PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm , AuthenticationForm , UsernameField , PasswordChangeForm,PasswordResetForm
 from django.contrib.auth.models import User
 from django.utils.translation import gettext,gettext_lazy as _
 from django.contrib.auth import password_validation
@@ -38,3 +38,9 @@ class CustomerProfileForm(forms.ModelForm):
         'state':forms.Select(attrs={'class':'form-control'}),
         'zipcode':forms.NumberInput(attrs={'class':'form-control'})}
 
+class MyPasswordResetForm(PasswordResetForm):
+    email = forms.EmailField(
+        label=_("Email"),
+        max_length=254,
+        widget=forms.EmailInput(attrs={"autocomplete": "email",'class':'form-control'})
+    )
