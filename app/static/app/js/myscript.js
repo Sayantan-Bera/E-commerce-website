@@ -40,6 +40,7 @@ const header = document.querySelector(".header");
 const search_button = document.querySelector(".search-button");
 const content_body = document.querySelector(".content-body");
 const content_pseudo = document.createElement("style");
+const product_sizes = document.querySelectorAll(".each-size");
 const disable_bg = `.content-body::before{
     position: absolute;
     z-index: 35;
@@ -92,7 +93,7 @@ onload = onresize = ()=>{
     toggle_menu.style.marginTop = height_of_header+"px";
     toggle_menu.style.height = leftover_height+"px";
 
-    if(window.innerWidth >= 1260)
+    if(window.innerWidth >=1260)
     {
         // background enabled
         content_pseudo.innerHTML = enable_bg;
@@ -133,7 +134,7 @@ dropdown_head.forEach((item)=>{
     });
     
     dropdown.addEventListener("mouseover",()=>{
-        if(window.innerWidth < 1260 || item.classList.contains("no-dropdown")) return;
+        if(window.innerWidth <1260 || item.classList.contains("no-dropdown")) return;
         dropdown.classList.add("show-drop-menu");
 
         // disable content pseudo
@@ -148,3 +149,12 @@ dropdown_head.forEach((item)=>{
         content_pseudo.innerHTML = enable_bg;
     });
 })
+
+product_sizes.forEach((item)=>{
+    item.addEventListener("click",()=>{
+        product_sizes.forEach((each_size)=>{
+            each_size.classList.remove("each-size-active");
+        });
+        item.classList.add("each-size-active");
+    });
+});

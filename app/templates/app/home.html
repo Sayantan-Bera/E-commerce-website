@@ -44,7 +44,7 @@
 {% block main-content %}
 <!-- 1st Product Slider -->
 <div class="row custom-slider-row">
-  <div class="slider-head">Trending</div>
+  <div class="slider-head light">Trending</div>
   <div class="featured-carousel owl-carousel">
     <!-- slide items -->
     {% for t in trending %}
@@ -53,10 +53,10 @@
         <img src="{{t.product_image.url}}" alt="not found" />
       </div>
       <div class="slide-item-details">
-        <div class="slide-item-price">
+        <div class="slide-item-price light">
           <span>&#8377;</span> {{t.discounted_price}}
         </div>
-        <div class="slide-item-title">{{t.title}}</div>
+        <div class="slide-item-title light">{{t.title}}</div>
       </div>
     </a>
     {% endfor %}
@@ -66,7 +66,7 @@
 
 <!-- 2nd Product Slider -->
 <div class="row custom-slider-row">
-  <div class="slider-head">Latest Fashion</div>
+  <div class="slider-head light">Latest Fashion</div>
   <div class="featured-carousel owl-carousel">
     <!-- slide items -->
     {% for t in latest_fashion %}
@@ -75,10 +75,10 @@
         <img src="{{t.product_image.url}}" alt="not found" />
       </div>
       <div class="slide-item-details">
-        <div class="slide-item-price">
+        <div class="slide-item-price light">
           <span>&#8377;</span> {{t.discounted_price}}
         </div>
-        <div class="slide-item-title">{{t.title}}</div>
+        <div class="slide-item-title light">{{t.title}}</div>
       </div>
     </a>
     {% endfor %}
@@ -88,7 +88,7 @@
 
 <!-- 3rd Product Slider -->
 <div class="row custom-slider-row">
-  <div class="slider-head">Kids</div>
+  <div class="slider-head light">Kids</div>
   <div class="featured-carousel owl-carousel">
     <!-- slide items -->
     {% for t in trending %}
@@ -97,10 +97,10 @@
         <img src="{{t.product_image.url}}" alt="not found" />
       </div>
       <div class="slide-item-details">
-        <div class="slide-item-price">
+        <div class="slide-item-price light">
           <span>&#8377;</span> {{t.discounted_price}}
         </div>
-        <div class="slide-item-title">{{t.title}}</div>
+        <div class="slide-item-title light">{{t.title}}</div>
       </div>
     </a>
     {% endfor %}
