@@ -20,7 +20,8 @@ Detail{% endblock title %} {% block main-content %}
 
     <!-- price section -->
     <div class="price-main">
-      <div class="discount-price light"><span>&#8377;</span> {{product.discounted_price}}
+      <div class="discount-price light">
+        <span>&#8377;</span> {{product.discounted_price}}
       </div>
       <div class="text-decoration-line-through lighter mrp-price">
         <span>MRP </span>
@@ -41,11 +42,14 @@ Detail{% endblock title %} {% block main-content %}
       </div>
     </div>
 
+    <form action="/add-to-cart">
+      <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id" />
+      <div class="product-buttons-div">
+        <button type="submit" class="custom-btn btn-6 light"><span>ADD TO CART</span></button>
+      </div>
+    </form>
+
     <!-- cart/buy section -->
-    <div class="product-buttons-div">
-      <a href="{% url 'add-to-cart' %}">
-        <button class="custom-btn btn-6 light"><span>ADD TO CART</span></button>
-      </a>
       <a href="{% url 'buy-now' %}">
         <button class="custom-btn btn-6 light"><span>BUY NOW</span></button>
       </a>
