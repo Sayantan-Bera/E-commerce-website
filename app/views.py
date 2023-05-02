@@ -158,16 +158,16 @@ def wactivewear(request,data=None):
 
 def girls(request,data=None):
     if data == None:
-        girls = Product.objects.filter(category='KB')
+        girls = Product.objects.filter(category='KG')
     elif data == 'Levis' or data == 'Raymond':
-        girls = Product.objects.filter(category='KB').filter(brand=data)
+        girls = Product.objects.filter(category='KG').filter(brand=data)
     return render(request, 'app/girls.html',{'girls':girls})
 
 def boys(request,data=None):
     if data == None:
-        boys = Product.objects.filter(category='KG')
+        boys = Product.objects.filter(category='KB')
     elif data == 'Levis' or data == 'Raymond':
-        boys = Product.objects.filter(category='KG').filter(brand=data)
+        boys = Product.objects.filter(category='KB').filter(brand=data)
     return render(request, 'app/boys.html',{'boys':boys})
 
 class CustomerRegistrationView(View):
