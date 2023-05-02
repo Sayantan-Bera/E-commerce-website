@@ -11,10 +11,8 @@ class ProductView(View):
     def get(self, request):
         trending = Product.objects.filter(category='T')
         latest_fashion = Product.objects.filter(category='WT')|Product.objects.filter(category='WJ')
-        jeans_men = Product.objects.filter(category='MJ')
-        tops_women = Product.objects.filter(category='WT')
-        active_wears_women = Product.objects.filter(category='WA')
-        return render(request, 'app/home.html', {'trending':trending, 'latest_fashion':latest_fashion, 'tops_women':tops_women, 'active_wears_women':active_wears_women})
+        kids = Product.objects.filter(category="KB")|Product.objects.filter(category='KG')
+        return render(request, 'app/home.html', {'trending':trending, 'latest_fashion':latest_fashion, 'kids':kids})
 
 # def product_detail(request):
 #  return render(request, 'app/productdetail.html')

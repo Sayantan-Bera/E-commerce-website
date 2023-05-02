@@ -91,7 +91,7 @@
   <div class="slider-head light">Kids</div>
   <div class="featured-carousel owl-carousel">
     <!-- slide items -->
-    {% for t in trending %}
+    {% for t in kids %}
     <a class="each-slide-item" href="{% url 'product-detail' t.id %}" class="btn">
       <div class="slide-item-img">
         <img src="{{t.product_image.url}}" alt="not found" />
