@@ -11,10 +11,8 @@ class ProductView(View):
     def get(self, request):
         trending = Product.objects.filter(category='T')
         latest_fashion = Product.objects.filter(category='WT')|Product.objects.filter(category='WJ')
-        jeans_men = Product.objects.filter(category='MJ')
-        tops_women = Product.objects.filter(category='WT')
-        active_wears_women = Product.objects.filter(category='WA')
-        return render(request, 'app/home.html', {'trending':trending, 'latest_fashion':latest_fashion, 'tops_women':tops_women, 'active_wears_women':active_wears_women})
+        kids = Product.objects.filter(category="KB")|Product.objects.filter(category='KG')
+        return render(request, 'app/home.html', {'trending':trending, 'latest_fashion':latest_fashion, 'kids':kids})
 
 # def product_detail(request):
 #  return render(request, 'app/productdetail.html')
@@ -158,16 +156,16 @@ def wactivewear(request,data=None):
 
 def girls(request,data=None):
     if data == None:
-        girls = Product.objects.filter(category='KB')
+        girls = Product.objects.filter(category='KG')
     elif data == 'Levis' or data == 'Raymond':
-        girls = Product.objects.filter(category='KB').filter(brand=data)
+        girls = Product.objects.filter(category='KG').filter(brand=data)
     return render(request, 'app/girls.html',{'girls':girls})
 
 def boys(request,data=None):
     if data == None:
-        boys = Product.objects.filter(category='KG')
+        boys = Product.objects.filter(category='KB')
     elif data == 'Levis' or data == 'Raymond':
-        boys = Product.objects.filter(category='KG').filter(brand=data)
+        boys = Product.objects.filter(category='KB').filter(brand=data)
     return render(request, 'app/boys.html',{'boys':boys})
 
 class CustomerRegistrationView(View):

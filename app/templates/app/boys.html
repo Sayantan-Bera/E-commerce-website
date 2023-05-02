@@ -23,7 +23,7 @@
         >
       </div>
       <div class="all-items">
-        {% for product in wdress %}
+        {% for product in boys %}
         <a class="each-slide-item" href="{% url 'product-detail' product.id %}">
           <div class="slide-item-img">
             <img src="{{product.product_image.url}}" alt="not found" />
