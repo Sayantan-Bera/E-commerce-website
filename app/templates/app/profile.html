@@ -1,34 +1,43 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block title %}Profile{% endblock title %}
-{% block main-content %}
-<div class="container my-5">
- <div class="row">
-  <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
-  <div class="col-sm-2 border-end">
-   <ul class="list-unstyled">
-    <li class="d-grid"><a href="{% url 'profile' %}" class="btn {{active}}">Profile</a></li>
-    <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
-   </ul>
-  </div>
-  <div class="col-sm-8 offset-sm-1">
-   <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {% for fm in form %} 
-    <div class="form-group col-lg-6 mb-3">
-      {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.erors|striptags}}</small>
+{% block main-content %} 
+<div class="all-products-main">
+  <div class="all-products-header profile-header">Welcome {{request.user}}</div>
+  <div class="all-products-body">
+    <div class="all-filters">
+      <a href="./userdetails.html" class="">Personal details</a>
+      <a href="" class="active-page">Add new address</a>
+      <a href="{% url 'address' %}" class="">Current addresses</a>
     </div>
-    {% endfor %} 
-    <div class="col-12 mt-3">
-      <button type="submit" class="btn btn-primary mb-3">Submit</button>
+ 
+    <div class="all-items">
+      <form action="" method="post" novalidate class="form">
+        <!-- Password change form header -->
+        <div class="upper-header light">ADD A NEW ADDRESS</div>
+  
+        <!-- password change form inputs -->
+        {% csrf_token %}
+          {% for fm in form %}
+            <div class="form-input-div">
+              <div class="lower-header light">{{fm.label_tag}}*</div>
+              <div class="each-form-input">{{fm}}</div>
+              <small class="form-error light">{{fm.errors|striptags}}</small>
+            </div>
+        {% endfor %}
+  
+        <!-- Password change button -->
+        <button type="submit" class="custom-btn btn-6 light"><span>CONFIRM</span></button>
+  
+        {% if messages %} 
+        {% for message in messages %}
+        <p {% if message.tags %} class="form-error light" {% endif %}>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+      </form>
     </div>
-   </form>
-   {% if messages %} 
-   {% for message in messages %}
-   <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
-   {% endfor %}
-   {% endif %}
+
   </div>
- </div>
 </div>
 {% endblock main-content %}
+

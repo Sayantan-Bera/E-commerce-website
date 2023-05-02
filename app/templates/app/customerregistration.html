@@ -3,14 +3,16 @@
 {% block title %}Customer Registration{% endblock title %}
 {% block main-content %}
 <div class="form-main-outer">
-    <div class="form-main signup-main">
+    <div class="form-main form-width">
         <!-- SignUp form -->
         <form action="" method="post" novalidate class="form">
         <div class="upper-header light">CREATE A NEW ACCOUNT</div>
 
         {% if messages %}
         {% for message in messages %}
-        <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+        <div {% if message.tags %} class="lower-header lighter register-success-msg" {% endif %}>
+            {{message}}
+        </div>
         {% endfor %}
         {% endif %}
 
@@ -33,14 +35,6 @@
         {% endfor %}
         {% endif %}
         </form>
-
-        <!-- Login redirect -->
-        <div class="redirect-div">
-            <div class="upper-header light">HAVE AN EXISTING ACCOUNT</div>
-            <a href="{%  url 'login' %}">
-                <button class="custom-btn btn-6 light"><span>LOGIN NOW</span></button>
-            </a>
-        </div>
     </div>
 </div>
 {% endblock main-content %}
