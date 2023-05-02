@@ -2,34 +2,35 @@
 {% load static %}
 {% block title %}Login{% endblock title %}
 {% block main-content %}
-<div class="container login-main">
- <div class="row my-3">
-  <div class="col-sm-6 offset-sm-3">
-   <h3>Login</h3>
-   <hr>
-   <form action="" method="post" novalidate class="shadow p-5">
-    {% csrf_token %}
-      {% for fm in form %}
-       <div class="form-group">
-        {{fm.label_tag}}{{fm}}<small class="text-danger">
-            {{fm.errors|striptags}}</small><br>
-       </div>
-    {% endfor %}
-    <small><a href="{% url 'password_reset' %}">Forget Password ?</a></small><br>
-    <input type="submit" class="btn btn-primary mt-4"
-    value="Login">
-    <br> 
-    <div class="text-center text-primary fw-bold"><small>
-        New to ECom ? <a href="{%  url 'customerregistration' %}" 
-        class="text-danger">Create an Account</a>
-    </small></div>
-    {% if form.non_field_errors %}
-     {% for error in form.non_field_errors%}
-      <p class="alert alert-danger my-3">{{error}}</p>
-     {% endfor %}
-    {% endif %}
-   </form>
-  </div>
- </div>
+<div class="form-main-outer">
+    <div class="form-main login-main">
+        <!-- login form -->
+        <form action="" method="post" novalidate class="form">
+            <div class="upper-header light">ALREADY HAVE AN ACCOUNT</div>
+            <!-- form inputs -->
+            {% csrf_token %}
+            {% for fm in form %}
+            <div class="form-input-div">
+                <div class="lower-header light">{{fm.label_tag}}*</div>
+                <div class="each-form-input">{{fm}}</div>
+                <small class="form-error light">{{fm.errors|striptags}}</small>
+            </div>
+            {% endfor %}
+    
+            <!-- forgot password -->
+            <a class="forget-pass light" href="{% url 'password_reset' %}">Forgot Password ?</a>
+    
+            <!-- login button -->
+            <button type="submit" class="custom-btn btn-6 light"><span>LOGIN</span></button>
+    
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors%}
+            <p class="form-error light">{{error}}</p>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </div>
 </div>
 {% endblock main-content %}
+{% block footer %}<div class=""></div>{% endblock footer %}
+

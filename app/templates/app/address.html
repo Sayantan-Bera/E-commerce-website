@@ -1,34 +1,53 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Address{% endblock title %}
+{% block title %}Profile{% endblock title %}
 {% block main-content %}
-<div class="container my-5">
- <div class="row">
- <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
-  <div class="col-sm-2 border-end">
-   <ul class="list-unstyled">
-    <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Profile</a></li>
-    <li class="d-grid"><a href="{% url 'address' %}" class="btn {{active}}">Address</a></li>
-   </ul>
-  </div>
-  <div class="col-sm-9 offset-sm-1">
-   <div class="row">
-    {% for ad in add %}
-    <div class="col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h3>Address {{forloop.counter}}</h3>
-       <p>Name: {{ad.name}}</p>
-       <p>Locality: {{ad.locality}}</p>
-       <p>City: {{ad.city}}</p>
-       <p>State: {{ad.state}}</p>
-       <p>Pin Code: {{ad.zipcode}}</p>
-      </div>
-     </div>
+<div class="all-products-main"> 
+    <div class="all-products-header profile-header">Welcome {{request.user}}</div>
+    <div class="all-products-body">
+        <div class="all-filters">
+        <a href="./userdetails.html" class="">Personal details</a>
+        <a href="{% url 'profile' %}" class="">Add new address</a>
+        <a href="" class="active-page">Current addresses</a>
+        </div>
+     
+        <div class="all-items">
+            {% for ad in add %}
+            <div class="each-address">
+                <div class="address-header">
+                    <div class="address-number"><div class="lighter">{{forloop.counter}}</div></div>
+                    <div class="delete-address-button light">
+                        <img
+                        class="delete-button-img light"
+                        src="{% static 'app/images/cust-delete-icon.png' %}"
+                        alt="Not found"
+                      />
+                    </div>
+                </div>
+                <div class="address-val">
+                    <div class="w-500 lighter info-key">Name: </div>
+                    <div class="light info-value">{{ad.name}}</div>
+                </div>
+                <div class="address-val">
+                    <div class="w-500 lighter info-key">Locality: </div>
+                    <div class="light info-value">{{ad.locality}}</div>
+                </div>
+                <div class="address-val">
+                    <div class="w-500 lighter info-key">City: </div>
+                    <div class="light info-value">{{ad.city}}</div>
+                </div>
+                <div class="address-val">
+                    <div class="w-500 lighter info-key">State: </div>
+                    <div class="light info-value">{{ad.state}}</div>
+                </div>
+                <div class="address-val">
+                    <div class="w-500 lighter info-key">Pin Code: </div>
+                    <div class="light info-value">{{ad.zipcode}}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-    {% endfor %}
-   </div>
-  </div>
- </div>
 </div>
 {% endblock main-content %}
+

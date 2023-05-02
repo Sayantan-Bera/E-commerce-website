@@ -51,43 +51,43 @@
 
           <!-- men wear -->
           <div class="dropdown">
-            <div class="dropdown-head">
+            <div class="dropdown-head w-100">
               Men
             </div>
 
             <div class="drop-menu">
-              <a class="drop-item" href="{% url 'mshirts' %}">Shirts</a>
-              <a class="drop-item" href="{% url 'mhoodjack' %}">Hoodies / Jackets</a>
-              <a class="drop-item" href="{% url 'mjeans' %}">Jeans</a>
-              <a class="drop-item" href="{% url 'mtrouser' %}">Trousers</a>
-              <a class="drop-item" href="{% url 'mactivewear' %}">Active Wear</a>
+              <a class="drop-item w-100" href="{% url 'mshirts' %}">Shirts</a>
+              <a class="drop-item w-100" href="{% url 'mhoodjack' %}">Hoodies / Jackets</a>
+              <a class="drop-item w-100" href="{% url 'mjeans' %}">Jeans</a>
+              <a class="drop-item w-100" href="{% url 'mtrouser' %}">Trousers</a>
+              <a class="drop-item w-100" href="{% url 'mactivewear' %}">Active Wear</a>
             </div>
           </div>
 
           <!-- women wear -->
           <div class="dropdown">
-            <div class="dropdown-head">
+            <div class="dropdown-head w-100">
               Women
             </div>
 
             <div class="drop-menu">
-              <a class="drop-item" href="{% url 'wdress' %}">Dresses</a>
-              <a class="drop-item" href="{% url 'wtops' %}">Tops</a>
-              <a class="drop-item" href="{% url 'wjeans' %}">Jeans</a>
-              <a class="drop-item" href="{% url 'wskirts' %}">Skirts</a>
-              <a class="drop-item" href="{% url 'wactivewear' %}">Active Wear</a>
+              <a class="drop-item w-100" href="{% url 'wdress' %}">Dresses</a>
+              <a class="drop-item w-100" href="{% url 'wtops' %}">Tops</a>
+              <a class="drop-item w-100" href="{% url 'wjeans' %}">Jeans</a>
+              <a class="drop-item w-100" href="{% url 'wskirts' %}">Skirts</a>
+              <a class="drop-item w-100" href="{% url 'wactivewear' %}">Active Wear</a>
             </div>
           </div>
 
           <!-- Kids wear -->
           <div class="dropdown">
-            <div class="dropdown-head">
+            <div class="dropdown-head w-100">
               Kids
             </div>
 
             <div class="drop-menu">
-              <a class="drop-item" href="{% url 'girls' %}">Girls</a>
-              <a class="drop-item" href="{% url 'boys' %}">Boys</a>
+              <a class="drop-item w-100" href="{% url 'girls' %}">Girls</a>
+              <a class="drop-item w-100" href="{% url 'boys' %}">Boys</a>
             </div>
           </div>
 
@@ -129,22 +129,22 @@
           {% if request.user.is_authenticated %}
           <!-- profile -->
           <div class="dropdown">
-            <div class="dropdown-head">
+            <div class="dropdown-head w-100">
               {{request.user.username|capfirst}}
             </div>
 
             <div class="drop-menu">
-              <a class="drop-item" href="{% url 'profile' %}">Profile</a>
-              <a class="drop-item" href="{% url 'orders' %}">Orders</a>
-              <a class="drop-item" href="{% url 'passwordchange' %}">Change Password</a>
-              <a class="drop-item" href="{% url 'logout' %}">Logout</a>
+              <a class="drop-item w-100" href="{% url 'profile' %}">Profile</a>
+              <a class="drop-item w-100" href="{% url 'orders' %}">Orders</a>
+              <a class="drop-item w-100" href="{% url 'passwordchange' %}">Change Password</a>
+              <a class="drop-item w-100" href="{% url 'logout' %}">Logout</a>
             </div>
           </div>
 
           <!-- cart -->
           <div class="dropdown ptr-all no-dropdown">
             <div class="dropdown-head cart no-dropdown">
-              <a href="{% url 'showcart' %}"><span class="">4</span>Cart</a>
+              <a class="w-100" href="{% url 'add-to-cart' %}"><span class="w-100">4</span>Cart</a>
             </div>
           </div>
           {% else %}
@@ -152,14 +152,14 @@
           <!-- login -->
           <div class="dropdown ptr-all no-dropdown">
             <div class="dropdown-head login no-dropdown">
-              <a href="{% url 'login' %}">Login</a>
+              <a class="w-100" href="{% url 'login' %}">Login</a>
             </div>
           </div>
 
           <!-- sign up -->
           <div class="dropdown ptr-all no-dropdown">
             <div class="dropdown-head signup no-dropdown">
-              <a href="{% url 'customerregistration' %}">
+              <a class="w-100" href="{% url 'customerregistration' %}">
                 Sign Up
               </a>
             </div>
@@ -173,79 +173,79 @@
     <div class="toggle-menu">
       <!-- home -->
       <a class="" aria-current="page" href="/">
-        <div class="home">Home</div>
+        <div class="home w-100">Home</div>
       </a>
 
       <!-- men wear -->
       <div class="dropdown">
-        <div class="dropdown-head">
+        <div class="dropdown-head w-100">
           Men
         </div>
 
         <div class="drop-menu">
-          <a class="drop-item" href="{% url 'mshirts' %}">Shirts</a>
-          <a class="drop-item" href="{% url 'mhoodjack' %}">Hoodies / Jackets</a>
-          <a class="drop-item" href="{% url 'mjeans' %}">Jeans</a>
-          <a class="drop-item" href="{% url 'mtrouser' %}">Trousers</a>
-          <a class="drop-item" href="{% url 'mactivewear' %}">Active Wear</a>
+          <a class="drop-item w-100" href="{% url 'mshirts' %}">Shirts</a>
+          <a class="drop-item w-100" href="{% url 'mhoodjack' %}">Hoodies / Jackets</a>
+          <a class="drop-item w-100" href="{% url 'mjeans' %}">Jeans</a>
+          <a class="drop-item w-100" href="{% url 'mtrouser' %}">Trousers</a>
+          <a class="drop-item w-100" href="{% url 'mactivewear' %}">Active Wear</a>
         </div>
       </div>
 
       <!-- women wear -->
       <div class="dropdown">
-        <div class="dropdown-head">
+        <div class="dropdown-head w-100">
           Women
         </div>
 
         <div class="drop-menu">
-          <a class="drop-item" href="{% url 'wdress' %}">Dresses</a>
-          <a class="drop-item" href="{% url 'wtops' %}">Tops</a>
-          <a class="drop-item" href="{% url 'wjeans' %}">Jeans</a>
-          <a class="drop-item" href="{% url 'wskirts' %}">Skirts</a>
-          <a class="drop-item" href="{% url 'wactivewear' %}">Active Wear</a>
+          <a class="drop-item w-100" href="{% url 'wdress' %}">Dresses</a>
+          <a class="drop-item w-100" href="{% url 'wtops' %}">Tops</a>
+          <a class="drop-item w-100" href="{% url 'wjeans' %}">Jeans</a>
+          <a class="drop-item w-100" href="{% url 'wskirts' %}">Skirts</a>
+          <a class="drop-item w-100" href="{% url 'wactivewear' %}">Active Wear</a>
         </div>
       </div>
 
       <!-- Kids wear -->
       <div class="dropdown">
-        <div class="dropdown-head">
+        <div class="dropdown-head w-100">
           Kids
         </div>
 
         <div class="drop-menu">
-          <a class="drop-item" href="{% url 'girls' %}">Boys</a>
-          <a class="drop-item" href="{% url 'boys' %}">Girls</a>
+          <a class="drop-item w-100" href="{% url 'girls' %}">Boys</a>
+          <a class="drop-item w-100" href="{% url 'boys' %}">Girls</a>
         </div>
       </div>
 
       <!-- profile -->
       {% if request.user.is_authenticated %}
       <div class="dropdown">
-        <div class="dropdown-head dropdown-toggle">
+        <div class="dropdown-head dropdown-toggle w-100">
           {{request.user.username|capfirst}}
         </div>
 
         <div class="drop-menu">
-          <a class="drop-item" href="{% url 'profile' %}">Profile</a>
-          <a class="drop-item" href="{% url 'orders' %}">Orders</a>
-          <a class="drop-item" href="{% url 'passwordchange' %}">Change Password</a>
-          <a class="drop-item" href="% url 'logout' %">Logout</a>
+          <a class="drop-item w-100" href="{% url 'profile' %}">Profile</a>
+          <a class="drop-item w-100" href="{% url 'orders' %}">Orders</a>
+          <a class="drop-item w-100" href="{% url 'passwordchange' %}">Change Password</a>
+          <a class="drop-item w-100" href="% url 'logout' %">Logout</a>
         </div>
       </div>
 
       <!-- cart -->
-      <a href="{% url 'showcart' %}" class="">
-        <div class="cart"><span class="">4</span> Cart</div>
+      <a href="{% url 'add-to-cart' %}" class="">
+        <div class="cart w-100"><span class="w-100">4</span> Cart</div>
       </a>
       {% else %}
       <!-- login -->
       <a href="{% url 'login' %}" class="">
-        <div class="login">Login</div>
+        <div class="login w-100">Login</div>
       </a>
 
       <!-- sign up -->
       <a href="{% url 'customerregistration' %}" class="">
-        <div class="signup">Sign Up</div>
+        <div class="signup w-100">Sign Up</div>
       </a>
       {% endif %}
     </div>
@@ -253,23 +253,26 @@
     <div class="content-body">
       {% block banner_slider %}
       {% endblock banner_slider %} 
+
       {% block main-content %}
       {% endblock main-content %}
-  
-      <!-- Start Footer -->
-      <footer class="container-fluid bg-dark text-center p-2 footer-index">
-        <small class="text-white"
-          >Copyright &copy; 2021 || Designed By GeekyShows ||
-        </small>
-        <img
-          src="{% static 'app/images/payment.png' %}"
-          alt=""
-          srcset=""
-          class="img-fluid"
-          height="2px"
-        />
-      </footer>
-      <!-- End Footer -->
+
+      {% block footer %}
+            <!-- Start Footer -->
+            <footer class="container-fluid bg-dark text-center p-2 footer-index">
+              <small class="text-white"
+                >Copyright &copy; 2021 || Designed By GeekyShows ||
+              </small>
+              <img
+                src="{% static 'app/images/payment.png' %}"
+                alt=""
+                srcset=""
+                class="img-fluid"
+                height="2px"
+              />
+            </footer>
+            <!-- End Footer -->
+      {% endblock footer %}
     </div>
 
     <!-- Jquery -->
