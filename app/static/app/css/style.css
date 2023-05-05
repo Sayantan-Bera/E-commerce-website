@@ -89,6 +89,47 @@
 .nav-right-buttons {
   display: none;
 }
+.cart-link,
+.toggle-menu-cart-link{
+  display: flex;
+  flex-direction: row;
+}
+.cart-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toggle-menu-cart-link{
+  margin-top: 3px;
+}
+.cart-count,
+.toggle-menu-cart-count{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8px;
+  background-color: black;
+  color: white;
+  width: 15px;
+  height: 16px;
+  padding: 2.5px;
+  padding-bottom: 3.5px;
+  border-radius: 50%;
+  position: absolute;
+  right: -7px;
+  top: 3px;
+}
+.toggle-menu-cart-count{
+  position: relative;
+  right: auto;
+  top: -5px;
+}
+.cart-link-inner{
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+}
+
 
 .menu-button {
   visibility: visible;
@@ -725,12 +766,12 @@ div > a:hover {
     justify-content: space-around;
   }
   .nav-left-buttons {
-    width: 80%;
+    width: 72%;
     padding: 0px 2%;
   }
   .nav-right-buttons {
     padding-left: 2%;
-    width: 50%;
+    width: 42%;
   }
   .menu-button,
   .toggle-menu,
@@ -765,6 +806,9 @@ div > a:hover {
   .drop-item:hover::after,
   .forget-pass:hover::after{
     width: 100%;
+  }
+  .cart:hover::after{
+    width: 0%;
   }
   .dropdown:active {
     pointer-events: none;
