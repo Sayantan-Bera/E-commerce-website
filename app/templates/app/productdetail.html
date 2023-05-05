@@ -1,5 +1,7 @@
-{% extends 'app/base.html' %} {% load static %} {% block title %}Product
-Detail{% endblock title %} {% block main-content %}
+{% extends 'app/base.html' %}
+{% load static %} 
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
 <div class="product-details-page-main">
   <!-- product image -->
   <div class="product-image-div">
@@ -34,7 +36,7 @@ Detail{% endblock title %} {% block main-content %}
     <div class="size-main">
       <div class="size-header light">SELECT SIZE</div>
       <div class="size-list">
-        <div class="each-size light">S</div>
+        <div class="each-size light each-size-active">S</div>
         <div class="each-size light">M</div>
         <div class="each-size light">L</div>
         <div class="each-size light">XL</div>
@@ -42,24 +44,26 @@ Detail{% endblock title %} {% block main-content %}
       </div>
     </div>
 
-    {% if item_incart %}
-    <a href="{% url 'showcart' %}">
-      <button class="custom-btn btn-6 light"><span>GO TO CART</span></button>
-    </a>
-    {% else %}
-    <form action="/add-to-cart">
-      <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id" />
-      <div class="product-buttons-div">
-        <button type="submit" class="custom-btn btn-6 light"><span>ADD TO CART</span></button>
-      </div>
-    </form>
-    {% endif %}
+    <div class="product-buttons-div">
+      {% if item_incart %}
+        <a href="{% url 'showcart' %}">
+          <button class="custom-btn btn-6 light"><span>GO TO CART</span></button>
+        </a>
+      {% else %}
+        <form action="/add-to-cart">
+          <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id" />
+          <div class="product-buttons-div">
+            <button type="submit" class="custom-btn btn-6 light"><span>ADD TO CART</span></button>
+          </div>
+        </form>
+      {% endif %}
 
-    <!-- cart/buy section -->
       <a href="{% url 'checkout' %}">
         <button class="custom-btn btn-6 light"><span>BUY NOW</span></button>
       </a>
     </div>
+    
   </div>
 </div>
 {% endblock main-content %}
+
