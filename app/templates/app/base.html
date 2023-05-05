@@ -144,7 +144,7 @@
           <!-- cart -->
           <div class="dropdown ptr-all no-dropdown">
             <div class="dropdown-head cart no-dropdown">
-              <a class="w-100" href="{% url 'add-to-cart' %}"><span class="w-100">4</span>Cart</a>
+              <a class="w-100" href="{% url 'add-to-cart' %}"><span class="w-100"> {{totalitem}} </span>Cart</a>
             </div>
           </div>
           {% else %}
@@ -235,7 +235,7 @@
 
       <!-- cart -->
       <a href="{% url 'add-to-cart' %}" class="">
-        <div class="cart w-100"><span class="w-100">4</span> Cart</div>
+        <div class="cart w-100"><span class="w-100">{{totalitem}}</span> Cart</div>
       </a>
       {% else %}
       <!-- login -->
