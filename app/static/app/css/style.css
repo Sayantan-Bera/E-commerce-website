@@ -801,7 +801,7 @@ div > a:hover {
   width: 140px;
   height: 42px;
 }
-.custom-btn:focus {
+.custom-btn:focus,.custom-btn-small:focus {
   border-radius: 0px;
   outline: none;
 }
