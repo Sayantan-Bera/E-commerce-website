@@ -660,9 +660,6 @@ div > a:hover {
 .cart-price-main {
   padding: 0px 20px;
 }
-.each-cart-item {
-  height: 500px;
-}
 .cart-price-main {
   width: 100%;
   display: flex;
@@ -740,7 +737,7 @@ div > a:hover {
   flex-direction: column;
 }
 .cart-item-img-div {
-  width: 30%;
+  width: 70%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -784,6 +781,9 @@ div > a:hover {
 .empty-cart-img {
   width: 300px;
 }
+.quantity-btn:hover{
+  cursor: pointer;
+}
 
 .custom-btn,
 .custom-btn-small {
@@ -796,7 +796,7 @@ div > a:hover {
 .custom-btn {
   width: 250px;
   height: 42px;
-}
+} 
 .custom-btn-small {
   width: 140px;
   height: 42px;
@@ -1078,11 +1078,11 @@ div > a:hover {
   }
   .cart-items-main {
     border-right: 1px solid rgba(0, 0, 0, 0.144);
-    width: 100%;
+    width: 60%;
   }
   .cart-price-main {
     border-top: 1px solid rgba(0, 0, 0, 0.144);
-    width: 100%;
+    width: 40%;
   }
 }
 
@@ -1115,13 +1115,14 @@ div > a:hover {
     margin-bottom: 5px;
   }
   .cart-items-main {
-    width: 70%;
+    width: 65%;
   }
   .cart-price-main {
-    width: 30%;
+    width: 35%;
   }
   .each-cart-item {
     flex-direction: row;
+    height: 550px;
   }
   .cart-item-details {
     padding-left: 15px;
@@ -1135,9 +1136,6 @@ div > a:hover {
   .each-cart-item-header {
     margin-top: 0px;
     border-top: 0px;
-  }
-  .each-cart-item {
-    height: 400px;
   }
 }
 
@@ -1161,6 +1159,9 @@ div > a:hover {
   .all-items > .each-slide-item {
     width: 26.33%;
     margin: 3% 3%;
+  }
+  .each-cart-item {
+    height: 450px;
   }
 }
 
