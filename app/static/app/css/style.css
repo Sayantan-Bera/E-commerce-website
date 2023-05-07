@@ -757,6 +757,23 @@ padding: 0px 20px;
 .cart-items-header{
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.144);
 }
+.empty-cart-main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.empty-cart-img-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty-cart-img{
+  width: 300px;
+}
 
 .custom-btn, .custom-btn-small{
   padding: 10px 25px;
