@@ -40,7 +40,7 @@
 
       <!-- website name -->
       <div class="header-first">
-        <a class="website-name" href="/">ECOM</a>
+        <a class="website-name" href="/"><i>OutFyt</i></a>
       </div>
 
       <!-- main-nav-buttons -->
@@ -146,6 +146,7 @@
             <div class="dropdown-head cart no-dropdown">
               <a class="cart-link lighter" href="{% url 'add-to-cart' %}">
                 <img
+                class="cart-img"
                 src="{% static 'app/images/cart.png' %}"
                 alt="Not found"
                 />
@@ -219,15 +220,15 @@
         </div>
 
         <div class="drop-menu">
-          <a class="drop-item w-100" href="{% url 'girls' %}">Boys</a>
-          <a class="drop-item w-100" href="{% url 'boys' %}">Girls</a>
+          <a class="drop-item w-100" href="{% url 'boys' %}">Boys</a>
+          <a class="drop-item w-100" href="{% url 'girls' %}">Girls</a>
         </div>
       </div>
 
       <!-- profile -->
       {% if request.user.is_authenticated %}
       <div class="dropdown">
-        <div class="dropdown-head dropdown-toggle w-100">
+        <div class="dropdown-head w-100">
           {{request.user.username|capfirst}}
         </div>
 
@@ -243,6 +244,7 @@
       <a href="{% url 'add-to-cart' %}" class="toggle-menu-cart-link lighter">
         <div class="cart-link-inner">
           <img
+          class="cart-img"
           src="{% static 'app/images/cart.png' %}"
           alt="Not found"
           />
