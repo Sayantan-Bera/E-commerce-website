@@ -24,11 +24,14 @@
           <!-- quantity button -->
           <div class="quantity-div light">
               <div class="quantity-header light w-500">QUANTITY</div>
-              <a class="minus-cart" pid="{{cart.product.id}}">
+
+              <a class="minus-cart quantity-btn" pid="{{cart.product.id}}">
                 <i class="fas fa-minus-square fa-lg"></i>
               </a>
+
               <div id="quantity" class="quantity-value">{{cart.quantity}}</div>
-              <a class="plus-cart" pid="{{cart.product.id}}">
+
+              <a class="plus-cart quantity-btn" pid="{{cart.product.id}}">
                 <i class="fas fa-plus-square fa-lg"></i>
               </a>
           </div>
@@ -68,7 +71,7 @@
       </div>
 
       <div class="price-section light total-price-div">
-        <div class="price-header no-wrap">TOTAL <small class="no-wrap">(including GST)</small></div>
+        <div class="">TOTAL <small class="no-wrap">(including GST)</small></div>
         <div class="no-wrap">
           <span>&#8377;</span>
           <span id ="totalamount">{{totalamount}}</span>
