@@ -204,7 +204,8 @@ $('.remove-cart').click(function () {
         success: function (data) {
             document.getElementById("amount").innerText = data.amount
             document.getElementById("totalamount").innerText = data.totalamount
-            eml.parentNode.parentNode.parentNode.parentNode.remove()
+            eml.parentNode.parentNode.parentNode.remove()
+            location.reload()
         }
     })
 })
