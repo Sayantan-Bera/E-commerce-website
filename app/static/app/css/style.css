@@ -667,7 +667,6 @@ div > a:hover {
   justify-content: center;
   align-items: center;
 }
-.cart-items-header,
 .each-cart-item,
 .price-main-header,
 .price-section {
@@ -760,9 +759,6 @@ div > a:hover {
 }
 .cart-item-details {
   width: 100%;
-}
-.cart-items-header {
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.144);
 }
 .empty-cart-main {
   width: 100%;
