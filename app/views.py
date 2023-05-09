@@ -167,7 +167,8 @@ def userdetails(request):
     return render(request, 'app/userdetails.html',{'profile':profile,'active':'btn-primary', 'totalitem':totalitem})
 
 def orders(request):
- return render(request, 'app/orders.html')
+ op = OrderPlaced.objects.filter(user=request.user)
+ return render(request, 'app/orders.html', {'order_placed':op})
 
 
 def mshirts(request,data=None):
@@ -327,8 +328,30 @@ class CustomerRegistrationView(View):
 
 @login_required      
 def checkout(request):
- return render(request, 'app/checkout.html')
+    user = request.user
+    address = Customer.objects.filter(user=user)
+    cart_items = Cart.objects.filter(user=user)
+    amount = 0.0
+    shipping_amount = 70.0
+    totalamount = 0.0
+    cart_product = [p for p in Cart.objects.all() if p.user==request.user]
+    if cart_product:
+        for p in cart_product:
+            tempamount = (p.quantity* p.product.discounted_price)
+            amount += tempamount
+        totalamount = amount + shipping_amount
 
+    return render(request, 'app/checkout.html', {'address':address, 'totalamount': totalamount, 'cart_items': cart_items})
+
+def payment_done(request):
+    user = request.user
+    custid = request.GET.get('custid')
+    customer = Customer.objects.get(id=custid)
+    cart = Cart.objects.filter(user=user)
+    for c in cart:
+        OrderPlaced(user=user, customer=customer, product=c.product, quantity=c.quantity).save()
+        c.delete()
+    return redirect("orders") 
 
 @method_decorator(login_required,name='dispatch')
 class ProfileView(View):
