@@ -11,6 +11,9 @@
 .w-500 {
   font-weight: 500;
 }
+.padding-top-bottom-15{
+  padding: 15px 0px;
+}
 /* helper classes end */
 
 .header {

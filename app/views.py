@@ -158,7 +158,7 @@ def address(request):
     add = Customer.objects.filter(user=request.user)
     return render(request, 'app/address.html', {'add':add, 'active':'btn-primary', 'totalitem':totalitem })
 
-@login_required      
+@login_required 
 def userdetails(request):
     totalitem = 0
     if request.user.is_authenticated:
@@ -166,9 +166,14 @@ def userdetails(request):
     profile = Customer.objects.filter(user=request.user)
     return render(request, 'app/userdetails.html',{'profile':profile,'active':'btn-primary', 'totalitem':totalitem})
 
+@login_required
 def orders(request):
- op = OrderPlaced.objects.filter(user=request.user)
- return render(request, 'app/orders.html', {'order_placed':op})
+    totalitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+
+    op = OrderPlaced.objects.filter(user=request.user)
+    return render(request, 'app/orders.html', {'order_placed':op, 'totalitem':totalitem})
 
 
 def mshirts(request,data=None):
@@ -326,8 +331,13 @@ class CustomerRegistrationView(View):
             form.save()
         return render(request, 'app/customerregistration.html',{'form':form})
 
-@login_required      
+@login_required
 def checkout(request):
+
+    totalitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+
     user = request.user
     address = Customer.objects.filter(user=user)
     cart_items = Cart.objects.filter(user=user)
@@ -341,8 +351,9 @@ def checkout(request):
             amount += tempamount
         totalamount = amount + shipping_amount
 
-    return render(request, 'app/checkout.html', {'address':address, 'totalamount': totalamount, 'cart_items': cart_items})
+    return render(request, 'app/checkout.html', {'address':address, 'totalamount': totalamount, 'cart_items': cart_items, 'totalitem':totalitem})
 
+@login_required
 def payment_done(request):
     user = request.user
     custid = request.GET.get('custid')
