@@ -221,9 +221,9 @@ $('.remove-address').click(function () {
             add_id: id
         },
         success: function (data) {
-            console.log(eml.parentNode.parentNode)
             eml.parentNode.parentNode.remove()
             location.reload()
         }
     })
 })
+
