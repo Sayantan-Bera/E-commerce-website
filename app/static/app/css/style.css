@@ -11,6 +11,9 @@
 .w-500 {
   font-weight: 500;
 }
+.padding-top-bottom-15{
+  padding: 15px 0px;
+}
 /* helper classes end */
 
 .header {
@@ -667,7 +670,6 @@ div > a:hover {
   justify-content: center;
   align-items: center;
 }
-.cart-items-header,
 .each-cart-item,
 .price-main-header,
 .price-section {
@@ -760,9 +762,6 @@ div > a:hover {
 }
 .cart-item-details {
   width: 100%;
-}
-.cart-items-header {
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.144);
 }
 .empty-cart-main {
   width: 100%;
