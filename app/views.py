@@ -19,8 +19,7 @@ class ProductView(View):
             totalitem = len(Cart.objects.filter(user=request.user))
         return render(request, 'app/home.html', {'trending':trending, 'latest_fashion':latest_fashion, 'kids':kids, 'totalitem':totalitem})
 
-# def product_detail(request):
-#  return render(request, 'app/productdetail.html')
+
 
 class ProdutDetailView(View):
     def get(self,request,pk):
@@ -133,14 +132,39 @@ def remove_cart(request):
         }
         return JsonResponse(data)
 
+
+@login_required
+def remove_address(request):
+    totalitem = 0
+    if request.user.is_authenticated:
+            totalitem = len(Cart.objects.filter(user=request.user))
+    if request.method == 'GET':
+        add_id = request.GET['add_id']
+        c = Customer.objects.get(Q(id = add_id) & Q(user=request.user))
+        c.delete()
+
+        data = {}
+        return JsonResponse(data)
+
 @login_required
 def buy_now(request):
  return render(request, 'app/buynow.html')
 
 @login_required
 def address(request):
+    totalitem = 0
+    if request.user.is_authenticated:
+            totalitem = len(Cart.objects.filter(user=request.user))
     add = Customer.objects.filter(user=request.user)
-    return render(request, 'app/address.html', {'add':add, 'active':'btn-primary'})
+    return render(request, 'app/address.html', {'add':add, 'active':'btn-primary', 'totalitem':totalitem })
+
+@login_required      
+def userdetails(request):
+    totalitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+    profile = Customer.objects.filter(user=request.user)
+    return render(request, 'app/userdetails.html',{'profile':profile,'active':'btn-primary', 'totalitem':totalitem})
 
 def orders(request):
  return render(request, 'app/orders.html')
@@ -305,13 +329,20 @@ class CustomerRegistrationView(View):
 def checkout(request):
  return render(request, 'app/checkout.html')
 
+
 @method_decorator(login_required,name='dispatch')
 class ProfileView(View):
     def get(self,request):
+        totalitem = 0
+        if request.user.is_authenticated:
+            totalitem = len(Cart.objects.filter(user=request.user))
         form = CustomerProfileForm()
-        return render(request, 'app/profile.html',{'form':form, 'active':'btn-primary'})
+        return render(request, 'app/profile.html',{'form':form, 'active':'btn-primary', 'totalitem':totalitem})
     
     def post(self,request):
+        totalitem = 0
+        if request.user.is_authenticated:
+            totalitem = len(Cart.objects.filter(user=request.user))
         form = CustomerProfileForm(request.POST)
         if form.is_valid():
             usr = request.user
@@ -323,6 +354,4 @@ class ProfileView(View):
             reg = Customer(user = usr, name=name, locality=locality, city=city, state=state, zipcode=zipcode) 
             reg.save()
             messages.success(request, 'Congratulations!! Profile Updated Successgully')
-        return render(request, 'app/profile.html',{'form':form, 'active':'btn-primary'})
-
- 
+        return render(request, 'app/profile.html',{'form':form, 'active':'btn-primary', 'totalitem':totalitem})

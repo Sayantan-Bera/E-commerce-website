@@ -6,7 +6,7 @@
   <div class="all-products-header profile-header">Welcome {{request.user}}</div>
   <div class="all-products-body">
     <div class="all-filters">
-      <a href="./userdetails.html" class="">Personal details</a>
+      <a href="{% url 'userdetails' %}" class="">Personal details</a>
       <a href="" class="active-page">Add new address</a>
       <a href="{% url 'address' %}" class="">Current addresses</a>
     </div>
