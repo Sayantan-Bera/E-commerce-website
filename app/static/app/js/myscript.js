@@ -204,7 +204,26 @@ $('.remove-cart').click(function () {
         success: function (data) {
             document.getElementById("amount").innerText = data.amount
             document.getElementById("totalamount").innerText = data.totalamount
-            eml.parentNode.parentNode.parentNode.parentNode.remove()
+            eml.parentNode.parentNode.parentNode.remove()
+            location.reload()
         }
     })
 })
+
+
+$('.remove-address').click(function () {
+    var id = $(this).attr("aid").toString();
+    var eml = this
+    $.ajax({
+        type: "GET",
+        url: "/removeaddress",
+        data: {
+            add_id: id
+        },
+        success: function (data) {
+            eml.parentNode.parentNode.remove()
+            location.reload()
+        }
+    })
+})
+
