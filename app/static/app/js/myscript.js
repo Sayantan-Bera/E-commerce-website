@@ -209,3 +209,21 @@ $('.remove-cart').click(function () {
         }
     })
 })
+
+
+$('.remove-address').click(function () {
+    var id = $(this).attr("aid").toString();
+    var eml = this
+    $.ajax({
+        type: "GET",
+        url: "/removeaddress",
+        data: {
+            add_id: id
+        },
+        success: function (data) {
+            eml.parentNode.parentNode.remove()
+            location.reload()
+        }
+    })
+})
+
