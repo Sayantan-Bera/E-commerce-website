@@ -20,6 +20,7 @@ urlpatterns = [
 
     path('checkout/', views.checkout, name='checkout'),
     path('paymentdone/', views.payment_done, name='paymentdone'),
+    
     path('accounts/login/',auth_views.LoginView.as_view(template_name='app/login.html',authentication_form=LoginForm),name='login'),
     path('logout/',auth_views.LogoutView.as_view(next_page='login'),name='logout'),
     path('passwordchange/',auth_views.PasswordChangeView.as_view(template_name='app/passwordchange.html',form_class=MyPasswordChangeForm, success_url=
