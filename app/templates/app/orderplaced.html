@@ -1,12 +1,12 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Password Reset Complete{% endblock title %}
+{% block title %}Order placed{% endblock title %}
 {% block main-content %}
 <div class="form-main-outer">
     <div class="form-main form-width">
         <div class="form">
             <!-- password changed header -->
-            <div class="upper-header light">PASSWORD RESET SUCCESSFUL</div>
+            <div class="upper-header light">YOUR ORDER HAS BEEN PLACED</div>
 
             <!-- Animation gif -->
             <div>
@@ -16,12 +16,13 @@
             </div>
 
             <!-- Cancel button -->
-            <a href="{% url 'login' %}" class="">
-                <button type="button" class="custom-btn btn-6 light"><span>LOGIN NOW</span></button>
+            <a href="{% url 'orders' %}" class="">
+                <button type="button" class="custom-btn btn-6 light"><span>MY ORDERS</span></button>
             </a>
         </div>   
     </div>
 </div>
-{% endblock main-content %}
+{% endblock main-content%}
 {% block footer %}<div class=""></div>{% endblock footer %}
 
+ 

@@ -78,7 +78,7 @@ STATUS_CHOICES=(
     ('Packed','Packed'),
     ('On The Way','On The Way'),
     ('Delivered','Delivered'),
-    ('Cancel','Cancel'),
+    ('Cancelled','Cancelled'),
 )
 class OrderPlaced(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
