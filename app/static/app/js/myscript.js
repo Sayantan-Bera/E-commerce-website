@@ -41,6 +41,9 @@ const search_button = document.querySelector(".search-button");
 const content_body = document.querySelector(".content-body");
 const content_pseudo = document.createElement("style");
 const product_sizes = document.querySelectorAll(".each-size");
+const checkboxes = document.querySelectorAll(".checkbox-span");
+const confirm_order_button = document.querySelector(".confirm-order");
+
 const disable_bg = `.content-body::before{
     position: absolute;
     z-index: 35;
@@ -81,6 +84,11 @@ header.addEventListener("click", (e) => {
     close_menu();
 });
 
+onload = () => {
+    confirm_order_button.classList.add("disabled");
+    confirm_order_button.classList.add("lighter");
+}
+
 onload = onresize = () => {
     let height_of_header = header.offsetHeight;
     let leftover_height = (window.innerHeight - height_of_header);
@@ -103,6 +111,13 @@ onload = onresize = () => {
         content_pseudo.innerHTML = disable_bg;
         search_button.classList.add("disable");
     }
+    
+    checkboxes.forEach((checkbox)=>{
+        checkbox.addEventListener("click", ()=>{
+            confirm_order_button.classList.remove("disabled");
+            confirm_order_button.classList.remove("lighter");
+        });
+    });
 };
 
 dropdown_head.forEach((item) => {

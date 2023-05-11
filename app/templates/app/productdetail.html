@@ -33,7 +33,7 @@
     </div>
 
     <!-- size section -->
-    <div class="size-main">
+    <div class="size-main disabled lighter">
       <div class="size-header light">SELECT SIZE</div>
       <div class="size-list">
         <div class="each-size light each-size-active">S</div>
@@ -58,7 +58,7 @@
         </form>
       {% endif %}
 
-      <a href="{% url 'checkout' %}">
+      <a href="{% url 'checkout' %}" class=" disabled lighter">
         <button class="custom-btn btn-6 light"><span>BUY NOW</span></button>
       </a>
     </div>

@@ -1,6 +1,6 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Profile{% endblock title %}
+{% block title %}Current Addresses{% endblock title %}
 {% block main-content %}
 <div class="all-products-main"> 
     <div class="all-products-header profile-header">Welcome {{request.user}}</div>
@@ -14,6 +14,7 @@
         <div class="all-items">
             {% for ad in add %}
             <div class="each-address">
+                
                 <div class="address-header">
                     <div class="address-number"><div class="lighter">{{forloop.counter}}</div></div>
                     <a href="#" class="remove-address" aid="{{ad.id}}">
@@ -26,6 +27,7 @@
                     </div>
                     </a>
                 </div>
+
                 <div class="address-val">
                     <div class="w-500 lighter info-key">Name: </div>
                     <div class="light info-value">{{ad.name}}</div>

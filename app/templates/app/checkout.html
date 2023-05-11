@@ -1,58 +1,93 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Buy Now{% endblock title %}
+{% block title %}Checkout{% endblock title %}
 {% block main-content %}
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-sm-6">
+<div class="all-products-main">
+  <div class="all-products-header">Order Summary</div>
+    <div class="all-products-body">
 
-      <h4>Order Summary</h4>
-      <hr>
-
-      {% for item in cart_items %}
-        <div class="card mb-2">
-          <div class="card-body">
-            <h5>{{ item.product.title }}</h5>
-            <p>Quantity: {{ item.quantity }}</p>
-            <p class="fw-bold">Price: {{ item.total_cost }}</p> 
-          </div>
-        </div>
-      {% endfor %}
-
-      <p class="fw-bold">Total cost + Rs. 70 = {{ totalamount }} </p>
-      
-      <small>
-        Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil in et quis?
-      </small>
-      
-    </div>
-
-    <div class="col-sm-4 offset-sm-1">
-
-      <h4>Select Shipping Address</h4>
-      <hr>
-
-      <form action="/paymentdone">
-        {% for ad in address %} 
-        <div class="card">
-          <div class="card-body">
-            <h5>{{ad.name}}</h5>
-            <p>{{ad.locality}}, {{ad.city}}, {{ad.state}} - {{ad.zipcode}}</p>
-          </div>
-        </div>
-        <div class="form-check mt-2 mb-5">
-          <input class="form-check-input" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
-          <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}"> Address: {{forloop.counter}} </label>
+      <!-- left column -->
+      <div class="cart-items-main">
+        {% for item in cart_items %}
+        <div class="each-order-item">
+          <div class="each-order-item-title light w-500">{{ item.product.title }}</div>
+          <div class="each-order-item-quantity light">Quantity: {{ item.quantity }}</div>
+          <div class="each-order-item-price light">Price: {{ item.total_cost }}</div>
         </div>
         {% endfor %}
 
-        <div class="text-end">
-          <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button>
+        <div class="price-section light">
+          <div class="price-header no-wrap">AMOUNT</div>
+          <div class="no-wrap">
+            <span>&#8377;</span>
+            <span id="amount">{{amount}}</span>
+          </div>
         </div>
-      </form>
+  
+        <div class="price-section light shipping-price-div">
+          <div class="price-header no-wrap">SHIPPING</div>
+          <div class="no-wrap">
+            <span>&#8377;</span>
+            <span>70</span>
+          </div>
+        </div>
+  
+        <div class="price-section light total-price-div">
+          <div class="">TOTAL <small class="no-wrap">(including GST)</small></div>
+          <div class="no-wrap">
+            <span>&#8377;</span>
+            <span id ="totalamount">{{totalamount}}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- right column -->
+      <div class="cart-price-main">
+
+        <div class="upper-header lighter price-main-header">SELECT ADDRESS</div> 
+
+        <form action="/paymentdone" class="order-addresses">
+          {% for ad in address %} 
+            <div class="each-order-address">
+              <div class="address-header">
+                <div class="address-number"><div class="lighter">{{forloop.counter}}</div></div>
+                <div class="delete-address-button light">
+                  <input class="address-checkbox" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}" />
+                  <label class="address-checkbox-label" for="custadd{{forloop.counter}}">
+                    <span class="checkbox-span"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="address-val">
+                  <div class="w-500 lighter info-key">Name: </div>
+                  <div class="light info-value">{{ad.name}}</div>
+              </div>
+              <div class="address-val">
+                  <div class="w-500 lighter info-key">Locality: </div>
+                  <div class="light info-value">{{ad.locality}}</div>
+              </div>
+              <div class="address-val">
+                  <div class="w-500 lighter info-key">City: </div>
+                  <div class="light info-value">{{ad.city}}</div>
+              </div>
+              <div class="address-val">
+                  <div class="w-500 lighter info-key">State: </div>
+                  <div class="light info-value">{{ad.state}}</div>
+              </div>
+              <div class="address-val">
+                  <div class="w-500 lighter info-key">Pin Code: </div>
+                  <div class="light info-value">{{ad.zipcode}}</div>
+              </div>
+            </div>
+          {% endfor %}
+
+          <div class="text-end">
+            <button type="submit" class="custom-btn btn-6 light confirm-order disabled lighter"><span>CONFIRM ORDER</span></button>
+          </div>
+        </form>
+      </div>
 
     </div>
-  </div>
 </div>
 {% endblock main-content %}
 

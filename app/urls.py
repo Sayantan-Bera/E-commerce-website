@@ -33,6 +33,8 @@ urlpatterns = [
 
     path('password-reset-complete/',auth_views.PasswordResetCompleteView.as_view(template_name='app/password_reset_complete.html'),name='password_reset_complete'),
 
+    path('orderplaced/',auth_views.PasswordResetCompleteView.as_view(template_name='app/orderplaced.html'),name='orderplaced'),
+
     path('mshirts/<slug:data>', views.mshirts, name='mshirtsdata'),
     path('mshirts/', views.mshirts, name='mshirts'),
     path('mhoodjack/<slug:data>', views.mhoodjack, name='mhoodjackdata'),
@@ -61,3 +63,4 @@ urlpatterns = [
     path('userdetails/', views.userdetails, name='userdetails'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+ 

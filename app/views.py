@@ -157,7 +157,7 @@ def address(request):
             totalitem = len(Cart.objects.filter(user=request.user))
     add = Customer.objects.filter(user=request.user)
     return render(request, 'app/address.html', {'add':add, 'active':'btn-primary', 'totalitem':totalitem })
-
+ 
 @login_required 
 def userdetails(request):
     totalitem = 0
@@ -327,7 +327,7 @@ class CustomerRegistrationView(View):
     def post(self,request):
         form = CustomerRegistrationForm(request.POST)
         if form.is_valid():
-            messages.success(request, 'Registered Successfully!!!')
+            messages.success(request, 'Registered Successfully!')
             form.save()
         return render(request, 'app/customerregistration.html',{'form':form})
 
@@ -341,9 +341,9 @@ def checkout(request):
     user = request.user
     address = Customer.objects.filter(user=user)
     cart_items = Cart.objects.filter(user=user)
-    amount = 0.0
-    shipping_amount = 70.0
-    totalamount = 0.0
+    amount = 0
+    shipping_amount = 70
+    totalamount = 0
     cart_product = [p for p in Cart.objects.all() if p.user==request.user]
     if cart_product:
         for p in cart_product:
@@ -351,10 +351,11 @@ def checkout(request):
             amount += tempamount
         totalamount = amount + shipping_amount
 
-    return render(request, 'app/checkout.html', {'address':address, 'totalamount': totalamount, 'cart_items': cart_items, 'totalitem':totalitem})
+    return render(request, 'app/checkout.html', {'address':address, 'totalamount': totalamount, 'cart_items': cart_items, 'totalitem':totalitem, 'amount': amount})
 
 @login_required
 def payment_done(request):
+    totalitem = 0
     user = request.user
     custid = request.GET.get('custid')
     customer = Customer.objects.get(id=custid)
@@ -362,7 +363,10 @@ def payment_done(request):
     for c in cart:
         OrderPlaced(user=user, customer=customer, product=c.product, quantity=c.quantity).save()
         c.delete()
-    return redirect("orders") 
+        
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+    return render(request, 'app/orderplaced.html', {'totalitem': totalitem})
 
 @method_decorator(login_required,name='dispatch')
 class ProfileView(View):
@@ -387,5 +391,5 @@ class ProfileView(View):
             zipcode = form.cleaned_data['zipcode']
             reg = Customer(user = usr, name=name, locality=locality, city=city, state=state, zipcode=zipcode) 
             reg.save()
-            messages.success(request, 'Congratulations!! Profile Updated Successgully')
+            messages.success(request, 'Address has been added!')
         return render(request, 'app/profile.html',{'form':form, 'active':'btn-primary', 'totalitem':totalitem})

@@ -1,6 +1,6 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Profile{% endblock title %}
+{% block title %}New Address{% endblock title %}
 {% block main-content %} 
 <div class="all-products-main">
   <div class="all-products-header profile-header">Welcome {{request.user}}</div>
@@ -13,8 +13,15 @@
  
     <div class="all-items">
       <form action="" method="post" novalidate class="form">
+
         <!-- Password change form header -->
-        <div class="upper-header light">ADD A NEW ADDRESS</div>
+        <!-- <div class="upper-header light">ADD A NEW ADDRESS</div> -->
+
+        {% if messages %} 
+        {% for message in messages %}
+        <div {% if message.tags %} class="form-error light" {% endif %}>{{message}}</div>
+        {% endfor %}
+        {% endif %}
   
         <!-- password change form inputs -->
         {% csrf_token %}
@@ -28,12 +35,6 @@
   
         <!-- Password change button -->
         <button type="submit" class="custom-btn btn-6 light"><span>CONFIRM</span></button>
-  
-        {% if messages %} 
-        {% for message in messages %}
-        <p {% if message.tags %} class="form-error light" {% endif %}>{{message}}</p>
-        {% endfor %}
-        {% endif %}
       </form>
     </div>
 

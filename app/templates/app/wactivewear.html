@@ -1,49 +1,49 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Buy Now{% endblock title %}
+{% block title %}Women Active Wear{% endblock title %}
 {% block main-content %}
 <div class="all-products-main">
-    <div class="all-products-header">Active wear for women</div>
-    <div class="all-products-body">
-      <div class="all-filters">
-        <a
-          href="{% url 'wactivewear'%}"
-          class=""
-          >All Activewears</a
-        >
-        <a
-          href="{% url 'wactiveweardata' 'below' %}"
-          class=""
-          >Less than 3000</a
-        >
-        <a
-          href="{% url 'wactiveweardata' 'above' %}"
-          class=""
-          >Greater than 3000</a
-        >
-      </div>
-      <div class="all-items">
-        {% for product in wactivewear %}
-        <a class="each-slide-item" href="{% url 'product-detail' product.id %}">
-          <div class="slide-item-img">
-            <img src="{{product.product_image.url}}" alt="not found" />
+  <div class="all-products-header">Active wear for women</div>
+  <div class="all-products-body">
+    <div class="all-filters">
+      <a
+        href="{% url 'wactivewear'%}"
+        class=""
+        >All Activewears</a
+      >
+      <a
+        href="{% url 'wactiveweardata' 'below' %}"
+        class=""
+        >Less than 3000</a
+      >
+      <a
+        href="{% url 'wactiveweardata' 'above' %}"
+        class=""
+        >Greater than 3000</a
+      >
+    </div>
+    <div class="all-items">
+      {% for product in wactivewear %}
+      <a class="each-slide-item" href="{% url 'product-detail' product.id %}">
+        <div class="slide-item-img">
+          <img src="{{product.product_image.url}}" alt="not found" />
+        </div>
+        <div class="slide-item-details">
+          <div class="slide-item-title light w-100">
+            {{product.title}}
           </div>
-          <div class="slide-item-details">
-            <div class="slide-item-title light w-100">
-              {{product.title}}
+          <div class="slide-item-price-outer">
+            <div class="slide-item-price light">
+              <span class="light">&#8377;</span> {{product.discounted_price}}
             </div>
-            <div class="slide-item-price-outer">
-              <div class="slide-item-price light">
-                <span class="light">&#8377;</span> {{product.discounted_price}}
-              </div>
-              <small class="light">
-                <span class="light">&#8377;</span>{{product.selling_price}}
-              </small>
-            </div>
+            <small class="light">
+              <span class="light">&#8377;</span>{{product.selling_price}}
+            </small>
           </div>
-        </a>
-        {% endfor %}
-      </div>
+        </div>
+      </a>
+      {% endfor %}
     </div>
   </div>
+</div>
 {% endblock main-content %}
