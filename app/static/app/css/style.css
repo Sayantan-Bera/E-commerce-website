@@ -4,6 +4,10 @@
   font-weight: 400;
 }
 
+.events-none{
+  pointer-events: none;
+}
+
 .header {
   display: flex;
   flex-direction: column;
